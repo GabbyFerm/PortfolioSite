@@ -108,7 +108,7 @@ p {
 
 /* About Section */
 .about {
-  background: url('images/template-bg.png') no-repeat center center/cover;
+  background: url('./images/template-bg.png') no-repeat center center/cover;
   min-height: 100vh;
   display: flex;
   align-items: center;
