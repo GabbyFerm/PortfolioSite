@@ -1,8 +1,8 @@
 /* Base Styling */
 body {
   font-family: "Barlow", sans-serif;
-  color: #2c2c2c;
-  background-color: #f9f9f9;
+  color: #2a2a2a;
+  background-color: #fdf6f9;
   margin: 0;
   scroll-behavior: smooth;
 }
@@ -15,8 +15,8 @@ body {
 
 /* Header */
 .site-header {
-  background-color: #000;
-  color: #fff;
+  background-color: #1e1e1e;
+  color: #fdf6f9;
   padding: 20px 0;
   position: fixed;
   width: 100%;
@@ -28,7 +28,7 @@ body {
   font-family: "Roboto Condensed", sans-serif;
   font-size: 32px;
   font-weight: bold;
-  color: #fff;
+  color: #ffffff;
   margin: 0;
 }
 
@@ -41,6 +41,12 @@ body {
   padding: 0 20px;
 }
 
+.nav-and-toggle {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
 .nav-links {
   list-style: none;
   display: flex;
@@ -50,7 +56,7 @@ body {
 }
 
 .nav-links a {
-  color: #ccc;
+  color: #ffffff;
   text-decoration: none;
   font-family: "Roboto Condensed", sans-serif;
   font-size: 18px;
@@ -58,10 +64,23 @@ body {
 }
 
 .nav-links a:hover {
-  color: #ff69b4; /* pop of pink */
+  color: #ff69b4;
 }
 
-/* Button */
+.theme-toggle-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-left: 1rem;
+  padding: 0;
+}
+
+.theme-toggle-btn img {
+  filter: invert(1);
+  width: 24px;
+  height: 24px;
+}
+
 .button {
   background-color: #ff69b4;
   color: #fff;
@@ -79,11 +98,10 @@ body {
   background-color: #ff85c1;
 }
 
-/* Typography */
 h1, h2, h3 {
   font-family: 'Space Grotesk', sans-serif;
   margin: 0 0 20px;
-  color: #2c2c2c;
+  color: #2a2a2a;
 }
 
 h1 {
@@ -103,13 +121,13 @@ h3 {
 p {
   font-size: 20px;
   font-weight: 200;
-  color: #2c2c2c;
+  color: #2a2a2a;
 }
 
 /* About Section */
 .about {
-  background: url('./images/template-bg.png') no-repeat center center/cover;
-  min-height: 100vh;
+  background: url('./images/bg-image-green.jpg') no-repeat center center/cover;
+  min-height: 80vh;
   display: flex;
   align-items: center;
   padding-top: 120px;
@@ -117,9 +135,9 @@ p {
 }
 
 .background-overlay {
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(30, 30, 30, 0.5);
   width: 100%;
-  padding: 100px 0;
+  padding: 70px 0;
 }
 
 .about-content {
@@ -157,18 +175,20 @@ p {
   color: #ffffff;
   margin-bottom: 20px;
   line-height: 1.2;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.3);
 }
 
 .about-content .lead {
   font-size: 24px;
-  margin-bottom: 20px;
   color: #ffffff;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+  margin-bottom: 20px;
 }
 
 /* Greatness Section */
 .greatness {
-  background-color: #f2f2f2;
-  padding: 100px 0;
+  background-color: #fff8fb;
+  padding: 70px 0;
 }
 
 .greatness-grid {
@@ -193,8 +213,8 @@ p {
 
 /* Skills Section */
 .skills {
-  background-color: #e8e8e8;
-  padding: 100px 0;
+  background-color: #fbeff3;
+  padding: 70px 0;
 }
 
 .skills-list {
@@ -212,8 +232,8 @@ p {
 
 /* Portfolio Section */
 .portfolio {
-  background-color: #f2f2f2;
-  padding: 100px 0;
+  background-color: #fff8fb;
+  padding: 70px 0;
 }
 
 .portfolio-grid {
@@ -236,8 +256,8 @@ p {
 
 .portfolio h3 {
   margin-top: 0;
-  margin-bottom: 5px; 
-  padding-top: 5px;    
+  margin-bottom: 5px;
+  padding-top: 5px;
 }
 
 .portfolio-item p {
@@ -248,8 +268,13 @@ p {
 
 .portfolio-item a {
   margin-top: 10px;
-  color: #ff69b4;
+  color: #ff69b4; 
+  font-weight: 600;
   text-decoration: none;
+}
+
+.portfolio-item a:hover {
+  color: #ff85c1;
 }
 
 /* Back to Top */
@@ -283,10 +308,10 @@ p {
 
 /* Footer */
 .footer {
-  background-color: #000;
-  color: #ccc;
+  background-color: #1e1e1e;
+  color: #fdf6f9;
   text-align: center;
-  padding: 40px 20px 60px; 
+  padding: 40px 20px 60px;
 }
 
 .footer-content {
@@ -296,7 +321,7 @@ p {
 
 .footer-heading {
   font-size: 24px;
-  color: #e0e0e0; 
+  color: #ffffff;
   margin-bottom: 20px;
   font-weight: 600;
 }
@@ -312,7 +337,7 @@ p {
 }
 
 .footer-links a {
-  color: #ccc;
+  color: #ffffff;
   text-decoration: none;
   font-size: 18px;
   transition: color 0.3s ease;
@@ -321,6 +346,66 @@ p {
 .footer-links a:hover {
   color: #ff69b4;
 }
+
+/* ==========================
+   🌙 Dark Mode Overrides
+   ========================== */
+   body.dark-mode {
+    background-color: #121212;
+    color: #f0f0f0;
+  }
+  
+  body.dark-mode h1,
+  body.dark-mode h2,
+  body.dark-mode h3,
+  body.dark-mode p,
+  body.dark-mode .portfolio-item p {
+    color: #f0f0f0;
+  }
+  
+  body.dark-mode .site-header {
+    background-color: #1e1e1e;
+    color: #ffffff;
+  }
+  
+  body.dark-mode .nav-links a {
+    color: #cccccc;
+  }
+  
+  body.dark-mode .nav-links a:hover {
+    color: #ff85c1;
+  }
+  
+  body.dark-mode .about {
+    background: url('./images/bg-image-green.jpg') no-repeat center center/cover;
+  }
+
+  body.dark-mode .greatness {
+    background-color: #1a1a1a; 
+  }
+  
+  body.dark-mode .skills {
+    background-color: #232323; 
+  }
+  
+  body.dark-mode .portfolio {
+    background-color: #2a2a2a; 
+  }
+  
+  body.dark-mode .footer {
+    background-color: #1e1e1e; 
+    color: #ccc;
+  }
+  
+  body.dark-mode .footer {
+    background-color: #1e1e1e;
+    color: #cccccc;
+  }
+  
+  body.dark-mode .footer-links a:hover {
+    color: #ff85c1;
+  }
+  
 
 /* Responsive Breakpoints */
 @media (max-width: 768px) {

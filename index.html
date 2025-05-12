@@ -17,13 +17,18 @@
     <header class="site-header">
         <div class="container header-content">
           <h1 class="logo">Gabriella Frank Ferm</h1>
-          <nav>
-            <ul class="nav-links">
-              <li><a href="#skills">Skills</a></li>
-              <li><a href="#portfolio">Portfolio</a></li>
-              <li><a href="#contact">Contact</a></li>
-            </ul>
-          </nav>
+          <div class="nav-and-toggle">
+            <nav>
+              <ul class="nav-links">
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#contact">Contact</a></li>
+              </ul>
+            </nav>
+            <button id="themeToggle" class="theme-toggle-btn" aria-label="Toggle dark mode">
+              <img id="themeIcon" src="./images/sun-solid.svg" alt="Toggle theme" />
+            </button>
+          </div>
         </div>
       </header>
 
@@ -181,16 +186,8 @@
         </div>
       </footer>
 
-    <!-- JavaScript for scroll-based show/hide -->
-    <script>
-        window.addEventListener('scroll', () => {
-          const backToTop = document.querySelector('.back-to-top');
-          if (window.scrollY > 300) {
-            backToTop.classList.add('show');
-          } else {
-            backToTop.classList.remove('show');
-          }
-        });
-      </script>
+    <!-- JavaScript Files -->
+    <script src="./js/theme.js"></script>
+    <script src="./js/scroll.js"></script>
 </body>
 </html>
