@@ -274,6 +274,7 @@ p {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 30px;
+  padding-top: 20px;
 }
 
 .portfolio-item {
@@ -329,6 +330,40 @@ p {
 
 .portfolio-item a:hover::after {
   width: 100%;
+}
+
+/* Styles for logo grid */
+.logo-section {
+  border-top: 1px solid #c1beb5;
+  padding: 25px 0;
+  margin-top: 30px;
+}
+
+.logo-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* 5 items per row */
+  gap: 40px;
+}
+
+.logo-item {
+  text-align: center;
+  
+}
+.logo-wrapper {
+  padding: 10px; /* Padding inside the logo container to create space */
+  display: flex; /* Use flexbox to center the image */
+  justify-content: center;
+  align-items: center;
+  height: 100%; /* Ensure the container has a consistent height */
+}
+
+.logo-item img {
+  max-width: 100%; /* Allow image to scale proportionally within container */
+  max-height: 100%; /* Ensure image fills the container height without distortion */
+  object-fit: contain; /* Ensure logos scale proportionally and stay inside the container */
+  border: 1px solid #c1beb5;
+  border-radius: 8px;
+  padding: 15px;
 }
 
 /* Back to Top */
@@ -598,5 +633,24 @@ p {
       bottom: 20px;
       right: 20px;
     }
+  }
+}
+@media (max-width: 768px) {
+  .logo-grid {
+    grid-template-columns: repeat(3, 1fr); /* 3 items per row for medium screens */
+  }
+}
+
+/* Media Query for even smaller screens (max-width: 480px) */
+@media (max-width: 480px) {
+  .logo-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 items per row for smaller screens */
+  }
+}
+
+/* Media Query for very small screens (max-width: 320px) */
+@media (max-width: 320px) {
+  .logo-grid {
+    grid-template-columns: 1fr; /* 1 item per row for very small screens */
   }
 }
