@@ -59,17 +59,17 @@
           <div class="text-block">
             <h2>Hi, I'm Gabriella - but most people call me Gabby!</h2>
             <p class="lead">
-              I’m a student, crazy cat person and creation lover.
+              I'm a student, crazy cat person and creation lover.
             </p>
             <p class="lead">
-              I enjoy making things — whether that’s with code, yarn, a
+              I enjoy making things — whether that's with code, yarn, a
               paintbrush, or pixels. I believe the best ideas come from
-              combining creativity and curiosity. Right now, I’m on an exciting
+              combining creativity and curiosity. Right now, I'm on an exciting
               path into tech, learning and building every day.
             </p>
             <p class="lead">
-              Also: I’m a lifelong Star Wars nerd and yes — the hair color
-              probably won’t be the same next time you meet me...
+              Also: I'm a lifelong Star Wars nerd and yes — the hair color
+              probably won't be the same next time you meet me...
             </p>
             <a
               href="https://www.linkedin.com/in/gabriella-frank-ferm-75aa10291/"
@@ -81,11 +81,10 @@
           </div>
 
           <div class="image-block multi-image">
-            <img src="./images/me.jpg" alt="Gabby" />
-            <img src="./images/monsters.jpg" alt="Crochet monsters" />
-            <img src="./images/totoro.jpg" alt="Crochet Totoro" />
-            <img src="./images/lunis.jpg" alt="Image of cat" />
-            <!-- Add more if you want -->
+            <img src="./images/me.jpg" alt="Portrait of Gabriella" />
+            <img src="./images/monsters.jpg" alt="Handmade crochet monsters" />
+            <img src="./images/totoro.jpg" alt="Crochet Totoro character" />
+            <img src="./images/lunis.jpg" alt="Gabriella's cat Lunis" />
           </div>
         </div>
       </div>
@@ -106,7 +105,7 @@
           </p>
           <p>
             From working at Mercus Workwear to helping brands as a designer,
-            I’ve gained a deep understanding of structure, aesthetics, and
+            I've gained a deep understanding of structure, aesthetics, and
             function—plus a love for problem-solving and making people feel
             seen.
           </p>
@@ -139,18 +138,18 @@
         <div class="greatness-block">
           <h2>Experience & Work</h2>
           <p>
-            🛍 Mercus Workwear, Göteborg<br />
-            – Sales Advisor & Department Lead<br />
-            – Specialized in workwear, PPE, decals<br />
-            – Involved in stock handling, customer profiling, quotes & order
+            🛠 Mercus Workwear, Göteborg<br />
+            — Sales Advisor & Department Lead<br />
+            — Specialized in workwear, PPE, decals<br />
+            — Involved in stock handling, customer profiling, quotes & order
             flow<br />
-            – Built strong relationships with clients and suppliers through
+            — Built strong relationships with clients and suppliers through
             solution-focused service
           </p>
           <p>
-            🎨 GF Design (2006–2016)<br />
-            – Freelance Graphic Designer<br />
-            – Branding, web, logos, print, UX & visual identities
+            🎨 GF Design (2006—2016)<br />
+            — Freelance Graphic Designer<br />
+            — Branding, web, logos, print, UX & visual identities
           </p>
           <p>
             🤝 Known for great customer service, strong communication,
@@ -168,13 +167,13 @@
           <li><strong>🧠 Backend:</strong> C#, .NET, ASP.NET Core Web API</li>
           <li>
             <strong>🎨 Frontend:</strong> React, TypeScript, HTML, CSS,
-            TailwindCSS
+            TailwindCSS, Next.js
           </li>
           <li><strong>🗄️ Databases:</strong> SQL, Entity Framework Core</li>
           <li><strong>⚙️ DevOps:</strong> GitHub Actions, CI/CD</li>
           <li>
             <strong>⚙️ Tools:</strong> Visual Studio, VS Code, GitHub, SQL
-            Server Management Studio, Postman, Pyramid
+            Server Management Studio, Postman, Pyramid, Figma
           </li>
           <li><strong>🎨 Design:</strong> Photoshop, Illustrator, InDesign</li>
           <li>
@@ -182,11 +181,11 @@
             problem solver
           </li>
           <li>
-            <strong>🌍 Languages:</strong> Swedish (native), English (fluent)
+            <strong>🌐 Languages:</strong> Swedish (native), English (fluent)
           </li>
           <li>
             <strong>🧩 Methods & Frameworks:</strong> Agile, Scrum, Clean Code,
-            Clean Architecture, RBAC
+            Clean Architecture, RBAC, MediatR
           </li>
         </ul>
         <a
@@ -213,8 +212,21 @@
             problems with code.
           </p>
           <div class="portfolio-grid">
+            <!-- NEW: Dojo Project -->
             <div class="portfolio-item">
-              <img src="./images/pixel1.jpg" alt="Project 1" />
+              <img src="./images/dojo1.jpg" alt="Dojo platform preview" />
+              <h3>Dojo Course Platform</h3>
+              <p>
+                Full-stack course platform built during LIA internship with
+                Clean Architecture, Identity, and payment integration.
+              </p>
+              <button class="project-link" onclick="openModal()">
+                View Project Details
+              </button>
+            </div>
+
+            <div class="portfolio-item">
+              <img src="./images/pixel1.jpg" alt="Fork & Spoon project" />
               <h3>Fork & Spoon</h3>
               <p>
                 In-progress recipe app with clean architecture, user auth, and
@@ -224,12 +236,16 @@
                 <a
                   href="https://github.com/GabbyFerm/Fork-and-spoon"
                   target="_blank"
+                  rel="noopener noreferrer"
                   >Fork & Spoon-repo</a
                 >
               </p>
             </div>
             <div class="portfolio-item">
-              <img src="./images/pixel2.jpg" alt="Project 2" />
+              <img
+                src="./images/pixel2.jpg"
+                alt="Clean Architecture API project"
+              />
               <h3>Clean Architecture API</h3>
               <p>
                 Backend demo using MediatR, OperationResult, clean layering, and
@@ -239,12 +255,13 @@
                 <a
                   href="https://github.com/GabbyFerm/OperationResultDemo"
                   target="_blank"
+                  rel="noopener noreferrer"
                   >Clean Architecture-repo</a
                 >
               </p>
             </div>
             <div class="portfolio-item">
-              <img src="./images/pixel3.jpg" alt="Project 3" />
+              <img src="./images/pixel3.jpg" alt="Dungeon Quest game" />
               <h3>Dungeon Quest</h3>
               <p>
                 A console RPG in C# with combat, progression, and save/load via
@@ -254,12 +271,13 @@
                 <a
                   href="https://github.com/GabbyFerm/TextBasedAdventure"
                   target="_blank"
+                  rel="noopener noreferrer"
                   >Dungeon Quest-repo</a
                 >
               </p>
             </div>
             <div class="portfolio-item">
-              <img src="./images/pixel4.jpg" alt="Project 4" />
+              <img src="./images/pixel4.jpg" alt="To-Do List application" />
               <h3>To-Do List App</h3>
               <p>
                 Console to-do app with JSON persistence, validation, and
@@ -269,6 +287,7 @@
                 <a
                   href="https://github.com/GabbyFerm/ToDoListApp"
                   target="_blank"
+                  rel="noopener noreferrer"
                   >ToDo List-repo</a
                 >
               </p>
@@ -287,19 +306,19 @@
           <div class="logo-grid">
             <div class="logo-item">
               <div class="logo-wrapper">
-                <img src="./images/logos/4224.svg" alt="4224" />
+                <img src="./images/logos/4224.svg" alt="4224 logo" />
               </div>
             </div>
             <div class="logo-item">
               <div class="logo-wrapper">
-                <img src="./images/logos/solartech.svg" alt="solartech" />
+                <img src="./images/logos/solartech.svg" alt="Solartech logo" />
               </div>
             </div>
             <div class="logo-item">
               <div class="logo-wrapper">
                 <img
                   src="./images/logos/andres-mur.svg"
-                  alt="Andres Mur & Kakel"
+                  alt="Andres Mur & Kakel logo"
                 />
               </div>
             </div>
@@ -307,40 +326,46 @@
               <div class="logo-wrapper">
                 <img
                   src="./images/logos/tradgardsstjans.svg"
-                  alt="Trädgårdstjänst"
+                  alt="Trädgårdstjänst logo"
                 />
               </div>
             </div>
             <div class="logo-item">
               <div class="logo-wrapper">
-                <img src="./images/logos/bueras.svg" alt="Bueras" />
+                <img src="./images/logos/bueras.svg" alt="Bueras logo" />
               </div>
             </div>
             <div class="logo-item">
               <div class="logo-wrapper">
-                <img src="./images/logos/billdals-el.svg" alt="Billdals El" />
+                <img
+                  src="./images/logos/billdals-el.svg"
+                  alt="Billdals El logo"
+                />
               </div>
             </div>
             <div class="logo-item">
               <div class="logo-wrapper">
-                <img src="./images/logos/boda-skog.svg" alt="Boda Skog" />
+                <img src="./images/logos/boda-skog.svg" alt="Boda Skog logo" />
               </div>
             </div>
             <div class="logo-item">
               <div class="logo-wrapper">
-                <img src="./images/logos/brixton-bygg.svg" alt="Brixton bygg" />
+                <img
+                  src="./images/logos/brixton-bygg.svg"
+                  alt="Brixton bygg logo"
+                />
               </div>
             </div>
             <div class="logo-item">
               <div class="logo-wrapper">
-                <img src="./images/logos/wallbrix.svg" alt="Wallbrix" />
+                <img src="./images/logos/wallbrix.svg" alt="Wallbrix logo" />
               </div>
             </div>
             <div class="logo-item">
               <div class="logo-wrapper">
                 <img
                   src="./images/logos/erik-klavefors.svg"
-                  alt="Erik Klavefors"
+                  alt="Erik Klavefors logo"
                 />
               </div>
             </div>
@@ -348,6 +373,98 @@
         </section>
       </div>
     </section>
+
+    <!-- Modal for Dojo Project -->
+    <div id="projectModal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h2>Dojo Course Platform</h2>
+        <p class="modal-subtitle">
+          Full-Stack Development | LIA Internship at InFiNetCode AB
+        </p>
+        <p class="modal-duration">September - November 2025</p>
+
+        <div class="modal-images">
+          <img src="./images/dojo1.jpg" alt="Dojo platform overview" />
+          <img src="./images/dojo2.jpg" alt="Dojo courses interface" />
+          <img src="./images/dojo3.jpg" alt="Dojo events page" />
+          <img src="./images/dojo4.jpg" alt="Dojo student dashboard" />
+          <img src="./images/dojo5.jpg" alt="Dojo payment integration" />
+        </div>
+
+        <div class="modal-section">
+          <h3>Project Overview</h3>
+          <p>
+            During my internship at InFiNetCode AB, I worked as a .NET/Fullstack
+            Developer on the development of Dojo, a comprehensive course
+            platform. I was involved in the entire development process — from
+            design in Figma to implementation of functionality using ASP.NET
+            Core, Entity Framework Core, React, TypeScript, and Next.js, based
+            on Clean Architecture and PipelineBehavior/MediatR patterns.
+          </p>
+        </div>
+
+        <div class="modal-section">
+          <h3>Key Contributions</h3>
+          <ul>
+            <li>
+              <strong>Authentication & Identity:</strong> Implemented GitHub and
+              Google OAuth login with refresh tokens
+            </li>
+            <li>
+              <strong>API Development:</strong> Built and integrated APIs
+              between backend and frontend
+            </li>
+            <li>
+              <strong>Payment Integration:</strong> Developed and tested Stripe
+              payment solution
+            </li>
+            <li>
+              <strong>UI/UX Design:</strong> Designed landing pages, course
+              pages, events, and student dashboard in Figma
+            </li>
+            <li>
+              <strong>Architecture:</strong> Worked with Clean Architecture
+              principles and maintained scalable codebase structure
+            </li>
+          </ul>
+        </div>
+
+        <div class="modal-section">
+          <h3>Technologies Used</h3>
+          <div class="tech-tags">
+            <span class="tech-tag">ASP.NET Core</span>
+            <span class="tech-tag">Entity Framework Core</span>
+            <span class="tech-tag">React</span>
+            <span class="tech-tag">TypeScript</span>
+            <span class="tech-tag">Next.js</span>
+            <span class="tech-tag">Clean Architecture</span>
+            <span class="tech-tag">MediatR</span>
+            <span class="tech-tag">Stripe API</span>
+            <span class="tech-tag">OAuth 2.0</span>
+            <span class="tech-tag">Figma</span>
+          </div>
+        </div>
+
+        <div class="modal-section">
+          <h3>Challenges & Learning</h3>
+          <p>
+            One of the main challenges was understanding how all the pieces of
+            Identity and the architecture fit together, as well as maintaining
+            organization in the file structure of a growing project. This
+            simultaneously gave me great insight into how to structure and scale
+            codebases effectively.
+          </p>
+          <p>
+            Beyond the technical aspects, I was able to use my background in
+            graphic design to contribute to the visual design of parts of the
+            platform. It was an educational and creative period where I had
+            great opportunity to grow and contribute, both technically and
+            design-wise.
+          </p>
+        </div>
+      </div>
+    </div>
 
     <!-- Floating Back to Top -->
     <a href="#" class="back-to-top">
@@ -390,5 +507,6 @@
     <!-- JavaScript Files -->
     <script src="./js/theme.js"></script>
     <script src="./js/scroll.js"></script>
+    <script src="./js/modal.js"></script>
   </body>
 </html>
