@@ -91,37 +91,6 @@ Console-based RPG game with JSON persistence and Spectre.Console styling.
 
 Interactive console application with data validation and JSON storage.
 
-## 💻 Setup & Deployment
-
-### Local Development
-
-1. Clone the repository:
-
-   ```bash
-   git clone https://github.com/GabbyFerm/PortfolioSite.git
-   ```
-
-2. Open `index.html` in your browser or use a local server:
-
-   ```bash
-   # Using Python
-   python -m http.server 8000
-
-   # Using Node.js
-   npx http-server
-   ```
-
-3. Navigate to `http://localhost:8000`
-
-### Deployment
-
-This is a static site that can be deployed to:
-
-- **GitHub Pages** - Free hosting for GitHub repositories
-- **Netlify** - Drag-and-drop deployment
-- **Vercel** - Optimized for static sites
-- **Any web server** - Simply upload files via FTP
-
 ## 📱 Browser Support
 
 - Chrome (latest)
@@ -142,7 +111,7 @@ This is a static site that can be deployed to:
 
 ## 📧 Contact
 
-- **Email**: gabriella.frankferm@gmail.com
+- **Email**: gabbzf@gmail.com
 - **LinkedIn**: [Gabriella Frank Ferm](https://www.linkedin.com/in/gabriella-frank-ferm-75aa10291/)
 - **GitHub**: [GabbyFerm](https://github.com/GabbyFerm)
 
