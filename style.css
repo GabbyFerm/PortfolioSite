@@ -270,12 +270,13 @@ p {
   padding: 70px 0;
 }
 
-.portfolio-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 30px;
-  padding-top: 20px;
-}
+.portfolio-grid { display: grid; grid-template-columns: 1fr; /* mobile: single column */ gap: 20px; padding-top: 20px; }
+
+/* tablet */ @media (min-width: 768px) { .portfolio-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; } }
+
+/* small desktop */ @media (min-width: 1024px) { .portfolio-grid { grid-template-columns: repeat(3, 1fr); gap: 28px; } }
+
+/* large desktop — force 4 columns / */ @media (min-width: 1280px)  { .portfolio-grid { grid-template-columns: repeat(4, 1fr); gap: 30px; max-width: 1200px;  margin: 0 auto; } }
 
 .portfolio-item {
   text-align: center;

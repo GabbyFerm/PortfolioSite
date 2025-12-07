@@ -1,0 +1,8 @@
+<!-- favicon-gf-barlow-fallback.svg -->
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256" role="img" aria-label="Gabriella Frank Ferm">
+  <title>Gabriella Frank Ferm</title>
+  <rect width="256" height="256" rx="32" fill="#da5d7e"/>
+  <text x="50%" y="54%" text-anchor="middle" fill="#ffffff"
+        font-family="Barlow, Verdana, Arial, sans-serif"
+        font-weight="700" font-size="110" dominant-baseline="middle">GF</text>
+</svg>
