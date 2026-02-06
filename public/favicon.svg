@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256">
+  <title>Gabriella Frank Ferm</title>
+  <!-- Pink rounded rectangle background -->
+  <rect width="256" height="256" rx="32" fill="#da5d7e"/>
+  <!-- White GF text -->
+  <text 
+    x="50%" 
+    y="52%" 
+    text-anchor="middle" 
+    dominant-baseline="middle"
+    fill="#ffffff"
+    font-family="Barlow, Arial, sans-serif"
+    font-weight="700" 
+    font-size="110"
+    letter-spacing="-4"
+  >GF</text>
+</svg>
