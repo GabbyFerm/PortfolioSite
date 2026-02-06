@@ -1,44 +1,32 @@
-// ============================================
-// TYPE DEFINITIONS
-// ============================================
-
-/**
- * Theme type - defines the available themes
- */
+// Theme types
 export type Theme = 'light' | 'dark';
 
-/**
- * Theme Context type - defines what the ThemeContext provides
- * This includes the current theme and a function to toggle it
- */
 export interface ThemeContextType {
   theme: Theme;
   toggleTheme: () => void;
 }
 
-/**
- * Project type - defines the structure of a portfolio project
- */
+// Project types - Single source of truth
 export interface Project {
   id: string;
   title: string;
-  description: string;
+  shortDescription: string;
+  fullDescription: string;
   image: string;
+  imageAlt: string;
+  imageFit?: 'cover' | 'contain'; // For mobile app screenshots
   tags: string[];
-  liveUrl?: string;
-  githubUrl?: string;
-  details?: ProjectDetails;
+  features?: string[];
+  github?: string;
+  demo?: string;
+  category: 'coding' | 'design';
+  modalImages?: string[]; // For projects with multiple screenshots (like Dojo)
 }
 
-/**
- * Detailed project information for modal display
- */
-export interface ProjectDetails {
-  subtitle: string;
-  duration: string;
-  overview: string;
-  contributions: string[];
-  technologies: string[];
-  challenges: string;
-  images: string[];
+// Logo types
+export interface Logo {
+  id: string;
+  name: string;
+  image: string;
+  alt: string;
 }

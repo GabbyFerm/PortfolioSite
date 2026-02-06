@@ -1,18 +1,4 @@
-export interface Project {
-  id: string;
-  title: string;
-  shortDescription: string;
-  fullDescription: string;
-  image: string;
-  imageAlt: string;
-  imageFit?: 'cover' | 'contain';
-  tags: string[];
-  features?: string[];
-  github?: string;
-  demo?: string;
-  category: 'coding' | 'design';
-  modalImages?: string[];
-}
+import type { Project } from '../types';
 
 export const projects: Project[] = [
   {

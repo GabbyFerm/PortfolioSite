@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { HiXMark } from 'react-icons/hi2';
-import type { Project } from '../../data/projectsData';
+import type { Project } from '../../types';
 
 interface ProjectModalProps {
   project: Project;

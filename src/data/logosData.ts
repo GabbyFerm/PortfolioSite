@@ -1,9 +1,4 @@
-export interface Logo {
-  id: string;
-  name: string;
-  image: string;
-  alt: string;
-}
+import type { Logo } from '../types';
 
 export const logos: Logo[] = [
   {

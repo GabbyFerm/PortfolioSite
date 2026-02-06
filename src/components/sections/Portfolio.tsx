@@ -4,7 +4,8 @@ import Squiggle from '../ui/Squiggle';
 import PortfolioCard from '../portfolio/PortfolioCard';
 import ProjectModal from '../portfolio/ProjectModal';
 import LogoGrid from '../portfolio/LogoGrid';
-import { projects, type Project } from '../../data/projectsData';
+import { projects } from '../../data/projectsData';
+import type { Project } from '../../types';
 
 export default function Portfolio() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
