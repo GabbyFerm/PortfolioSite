@@ -1,5 +1,16 @@
 import type { Project } from '../types';
 
+const projectImages = import.meta.glob<{ default: string }>(
+  '../assets/images/projects/*.{jpg,png,svg}',
+  { eager: true }
+);
+
+// Helper to get project image path
+const getProjectImage = (filename: string) => {
+  const path = `../assets/images/projects/${filename}`;
+  return projectImages[path]?.default || '';
+};
+
 export const projects: Project[] = [
   {
     id: 'pluggkompis',
@@ -8,7 +19,7 @@ export const projects: Project[] = [
       'Full-stack platform connecting students with free homework help at libraries and youth centers across Sweden.',
     fullDescription:
       'A full-stack platform connecting students with free homework help at libraries and youth centers across Sweden. Features multi-role authentication, booking management and volunteer scheduling. Built with Clean Architecture and demo deployed to Vercel & Azure.',
-    image: '/images/pluggkompis.jpg',
+    image: getProjectImage('pluggkompis.jpg'),
     imageAlt: 'PluggKompis platform screenshot',
     tags: ['ASP.NET Core', 'React', 'TypeScript', 'Clean Architecture', 'Azure'],
     features: [
@@ -29,7 +40,7 @@ export const projects: Project[] = [
       'A local-first, privacy-focused mobile app for knitters and crocheters to track row counts, projects, and sessions.',
     fullDescription:
       'A local-first, privacy-focused mobile app for knitters and crocheters to track row counts, projects, and sessions. Built as a personal passion project to solve a real need in my own creative practice. Still a work in progress!',
-    image: '/images/stitchtrack1.jpg',
+    image: getProjectImage('stitchtrack1.jpg'),
     imageAlt: 'StitchTrack mobile app screenshot',
     imageFit: 'contain',
     tags: ['.NET MAUI', 'SQLite', 'MVVM', 'Cross-platform'],
@@ -41,9 +52,9 @@ export const projects: Project[] = [
       'Cross-platform (iOS & Android)',
     ],
     modalImages: [
-      '/images/stitchtrack1.png',
-      '/images/stitchtrack2.png',
-      '/images/stitchtrack3.png',
+      getProjectImage('stitchtrack1.png'),
+      getProjectImage('stitchtrack2.png'),
+      getProjectImage('stitchtrack3.png'),
     ],
     github: 'https://github.com/GabbyFerm/StitchTrack',
     category: 'coding',
@@ -55,7 +66,7 @@ export const projects: Project[] = [
       'Full-stack recipe app with user auth, recipe CRUD, profile customization, and image uploads via presigned URLs.',
     fullDescription:
       'Savory is a full‑stack recipe app (React + TypeScript, ASP.NET Core) featuring user auth, recipe CRUD, profile customization, and image uploads via presigned URLs. Built with clean architecture and demo deployed to Vercel & Azure.',
-    image: '/images/savory.jpg',
+    image: getProjectImage('savory.jpg'),
     imageAlt: 'Savory recipe app screenshot',
     tags: ['ASP.NET Core', 'React', 'TypeScript', 'Azure', 'Clean Architecture'],
     features: [
@@ -76,7 +87,7 @@ export const projects: Project[] = [
       'Full-stack course platform built during LIA internship with Clean Architecture, Identity, and payment integration.',
     fullDescription:
       'During my internship at InFiNetCode AB, I worked as a .NET/Fullstack Developer on the development of Dojo, a comprehensive course platform. I was involved in the entire development process — from design in Figma to implementation of functionality using ASP.NET Core, Entity Framework Core, React, TypeScript, and Next.js, based on Clean Architecture and PipelineBehavior/MediatR patterns.',
-    image: '/images/dojo1.jpg',
+    image: getProjectImage('dojo1.jpg'),
     imageAlt: 'Dojo platform overview',
     tags: [
       'ASP.NET Core',
@@ -96,11 +107,11 @@ export const projects: Project[] = [
       'Architecture: Worked with Clean Architecture principles and maintained scalable codebase structure',
     ],
     modalImages: [
-      '/images/dojo1.jpg',
-      '/images/dojo2.jpg',
-      '/images/dojo3.jpg',
-      '/images/dojo4.jpg',
-      '/images/dojo5.jpg',
+      getProjectImage('dojo1.jpg'),
+      getProjectImage('dojo2.jpg'),
+      getProjectImage('dojo3.jpg'),
+      getProjectImage('dojo4.jpg'),
+      getProjectImage('dojo5.jpg'),
     ],
     category: 'coding',
   },
@@ -111,7 +122,7 @@ export const projects: Project[] = [
       'In-progress recipe app with clean architecture, user auth, and modular backend. Frontend coming soon!',
     fullDescription:
       'In-progress recipe app with clean architecture, user auth, and modular backend. Frontend coming soon!',
-    image: '/images/forkspoon.jpg',
+    image: getProjectImage('forkspoon.jpg'),
     imageAlt: 'Fork & Spoon project',
     tags: ['ASP.NET Core', 'Clean Architecture', 'Entity Framework'],
     github: 'https://github.com/GabbyFerm/Fork-and-spoon',
@@ -124,7 +135,7 @@ export const projects: Project[] = [
       'Backend demo using MediatR, OperationResult, clean layering, and in-memory unit tests.',
     fullDescription:
       'Backend demo using MediatR, OperationResult, clean layering, and in-memory unit tests.',
-    image: '/images/pixel2.jpg',
+    image: getProjectImage('pixel2.jpg'),
     imageAlt: 'Clean Architecture API project',
     tags: ['ASP.NET Core', 'MediatR', 'Clean Architecture', 'Unit Testing'],
     github: 'https://github.com/GabbyFerm/OperationResultDemo',
@@ -137,7 +148,7 @@ export const projects: Project[] = [
       'A console RPG in C# with combat, progression, and save/load via JSON. Styled with Spectre.Console.',
     fullDescription:
       'A console RPG in C# with combat, progression, and save/load via JSON. Styled with Spectre.Console.',
-    image: '/images/pixel3.jpg',
+    image: getProjectImage('pixel3.jpg'),
     imageAlt: 'Dungeon Quest game',
     tags: ['C#', 'Console App', 'JSON', 'Spectre.Console'],
     github: 'https://github.com/GabbyFerm/TextBasedAdventure',
@@ -148,7 +159,7 @@ export const projects: Project[] = [
     title: 'To-Do List App',
     shortDescription: 'Console to-do app with JSON persistence, validation, and interactive UI.',
     fullDescription: 'Console to-do app with JSON persistence, validation, and interactive UI.',
-    image: '/images/pixel4.jpg',
+    image: getProjectImage('pixel4.jpg'),
     imageAlt: 'To-Do List application',
     tags: ['C#', 'Console App', 'JSON'],
     github: 'https://github.com/GabbyFerm/ToDoListApp',

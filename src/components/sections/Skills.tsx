@@ -110,7 +110,7 @@ export default function Skills() {
       </ul>
 
       <a
-        href="/images/GabriellaFerm-CV-eng.pdf"
+        href={`${import.meta.env.BASE_URL}GabriellaFerm-CV-eng.pdf`}
         className="button"
         target="_blank"
         rel="noopener noreferrer"
