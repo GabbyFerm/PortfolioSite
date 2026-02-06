@@ -6,6 +6,6 @@ export default defineConfig(({ mode }) => ({
   plugins: [react()],
   base: mode === 'production' ? '/portfolio-react/' : '/',
   define: {
-    __DEV__: mode === 'development', 
+    __DEV__: mode === 'development',
   }
 }))
