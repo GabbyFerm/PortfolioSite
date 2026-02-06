@@ -7,7 +7,3 @@ updates:
     open-pull-requests-limit: 5
     allow:
       - dependency-type: "all"
-  - name: Install dependencies
-    run: npm ci
-  - name: Audit dependencies
-    run: npm audit --audit-level=high
