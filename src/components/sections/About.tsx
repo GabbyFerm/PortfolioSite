@@ -1,16 +1,19 @@
 import { useTheme } from '../../hooks/useTheme';
 
-import meImg from '../../assets/images/me.jpg';
-import monstersImg from '../../assets/images/monsters.jpg';
-import totoroImg from '../../assets/images/totoro.jpg';
-import lunisImg from '../../assets/images/lunis.jpg';
+import meImg from '../../assets/images/personal/me.jpg';
+import monstersImg from '../../assets/images/personal/monsters.jpg';
+import totoroImg from '../../assets/images/personal/totoro.jpg';
+import lunisImg from '../../assets/images/personal/lunis.jpg';
+
+// Background images
+import bgDark from '../../assets/images/backgrounds/bg-image.jpg';
+import bgLight from '../../assets/images/backgrounds/bg-image-light.jpg';
 
 export default function About() {
   const { theme } = useTheme();
 
   // Choose background image based on theme
-  const backgroundImage =
-    theme === 'dark' ? '/images/bg-image-dark.jpg' : '/images/bg-image-light.jpg';
+  const backgroundImage = theme === 'dark' ? bgDark : bgLight;
 
   return (
     <section
