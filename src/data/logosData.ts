@@ -1,64 +1,73 @@
 import type { Logo } from '../types';
 
+const logoImages = import.meta.glob<{ default: string }>('../assets/images/logos/*.svg', {
+  eager: true,
+});
+
+const getLogoImage = (filename: string) => {
+  const path = `../assets/images/logos/${filename}`;
+  return logoImages[path]?.default || '';
+};
+
 export const logos: Logo[] = [
   {
     id: '4224',
     name: '4224',
-    image: '/images/logos/4224.svg',
+    image: getLogoImage('4224.svg'),
     alt: '4224 logo',
   },
   {
     id: 'solartech',
     name: 'Solartech',
-    image: '/images/logos/solartech.svg',
+    image: getLogoImage('solartech.svg'),
     alt: 'Solartech logo',
   },
   {
     id: 'andres-mur',
     name: 'Andres Mur & Kakel',
-    image: '/images/logos/andres-mur.svg',
+    image: getLogoImage('andres-mur.svg'),
     alt: 'Andres Mur & Kakel logo',
   },
   {
     id: 'tradgardsstjans',
     name: 'Trädgårdstjänst',
-    image: '/images/logos/tradgardsstjans.svg',
+    image: getLogoImage('tradgardsstjans.svg'),
     alt: 'Trädgårdstjänst logo',
   },
   {
     id: 'bueras',
     name: 'Bueras',
-    image: '/images/logos/bueras.svg',
+    image: getLogoImage('bueras.svg'),
     alt: 'Bueras logo',
   },
   {
     id: 'billdals-el',
     name: 'Billdals El',
-    image: '/images/logos/billdals-el.svg',
+    image: getLogoImage('billdals-el.svg'),
     alt: 'Billdals El logo',
   },
   {
     id: 'boda-skog',
     name: 'Boda Skog',
-    image: '/images/logos/boda-skog.svg',
+    image: getLogoImage('boda-skog.svg'),
     alt: 'Boda Skog logo',
   },
   {
     id: 'brixton-bygg',
     name: 'Brixton Bygg',
-    image: '/images/logos/brixton-bygg.svg',
+    image: getLogoImage('brixton-bygg.svg'),
     alt: 'Brixton bygg logo',
   },
   {
     id: 'wallbrix',
     name: 'Wallbrix',
-    image: '/images/logos/wallbrix.svg',
+    image: getLogoImage('wallbrix.svg'),
     alt: 'Wallbrix logo',
   },
   {
     id: 'erik-klavefors',
     name: 'Erik Klavefors',
-    image: '/images/logos/erik-klavefors.svg',
+    image: getLogoImage('erik-klavefors.svg'),
     alt: 'Erik Klavefors logo',
   },
 ];
