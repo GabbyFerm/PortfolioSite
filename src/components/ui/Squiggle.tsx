@@ -9,14 +9,10 @@ export default function Squiggle({ delay = 0 }: SquiggleProps) {
   const squiggleRef = useRef<SVGSVGElement>(null);
 
   useEffect(() => {
-    console.log('🔍 Squiggle mounted'); // Debug log
-
     const observer = new IntersectionObserver(
       ([entry]) => {
-        console.log('👀 Intersection observed:', entry.isIntersecting);
         if (entry.isIntersecting) {
           setIsVisible(true);
-          console.log('✅ Setting visible to true');
           // Once visible, stop observing
           observer.disconnect();
         }
