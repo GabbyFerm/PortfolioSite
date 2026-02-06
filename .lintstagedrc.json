@@ -1,7 +1,7 @@
 {
-  "*.js": ["eslint --fix", "prettier --write", "git add"],
-  "*.jsx": ["eslint --fix", "prettier --write", "git add"],
-  "*.css": ["prettier --write", "git add"],
-  "*.json": ["prettier --write", "git add"],
-  "*.md": ["prettier --write", "git add"]
+  "*.ts": ["eslint --fix", "prettier --write"],
+  "*.tsx": ["eslint --fix", "prettier --write"],
+  "*.css": ["prettier --write"],
+  "*.json": ["prettier --write"],
+  "*.md": ["prettier --write"]
 }
