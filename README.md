@@ -4,92 +4,214 @@ Welcome to my personal portfolio website! This site showcases my journey as a .N
 
 ## 🌟 About This Portfolio
 
-This portfolio represents my work as a student at NBI Handelsakademin in Gothenburg, studying .NET-focused system development. It highlights my technical projects, design work, and professional experience.
+This portfolio represents my work as a student at NBI Handelsakademin in Gothenburg, studying .NET-focused system development (graduating June 2026). It highlights my technical projects, design work, and professional experience through a modern, interactive interface.
 
 ## 🛠️ Technologies Used
 
-- **HTML5** - Semantic markup and structure
-- **CSS3** - Modern styling with CSS Grid, Flexbox, and animations
-- **JavaScript (ES6+)** - Interactive features and theme toggling
-- **Google Fonts** - Custom typography (Roboto Condensed, Space Grotesk, Barlow)
+### Frontend
+
+- **React 18** - Component-based UI architecture
+- **TypeScript** - Type-safe development
+- **Vite** - Lightning-fast build tool and dev server
+- **CSS3** - Modern styling with CSS Grid, Flexbox, custom properties, and animations
+
+### Tools & Libraries
+
+- **React Icons** - Icon components (HeroIcons 2)
+- **React Hooks** - State management and side effects
+- **Context API** - Theme management
+- **Intersection Observer API** - Scroll-triggered animations
+- **Google Fonts** - Custom typography (Comforter, Space Grotesk, Barlow)
+
+### Development
+
+- **ESLint** - Code linting
+- **Prettier** - Code formatting
+- **TypeScript** - Static type checking
+- **Git** - Version control
+- **GitHub Actions** - CI/CD pipeline
 
 ## ✨ Features
 
-- **Responsive Design** - Fully optimized for desktop, tablet, and mobile devices
-- **Dark Mode Toggle** - User preference saved to localStorage
-- **Smooth Scroll Navigation** - Seamless section transitions
-- **Project Modal** - Detailed project view for internship work (confidential repositories)
-- **Back-to-Top Button** - Enhanced user navigation
-- **Animated Hero Section** - Engaging entrance animations
-- **Portfolio Grid** - Organized showcase of coding projects and design work
+- **Responsive Design** - Mobile-first approach, fully optimized for all devices
+- **Dark Mode Toggle** - Seamless theme switching with localStorage persistence
+- **Smooth Animations** - Scroll-triggered squiggle underlines using Intersection Observer
+- **Component Architecture** - Reusable, maintainable React components
+- **Type Safety** - Full TypeScript implementation for robust code
+- **Project Modals** - Detailed project views with image galleries and tech stacks
+- **Logo Showcase** - Professional design portfolio with hover effects
+- **Accessible Navigation** - Keyboard navigation and ARIA labels
+- **Performance Optimized** - Fast load times with Vite's optimized bundling
+- **GitHub Actions Deployment** - Automated deployment to GitHub Pages
 
 ## 📂 Project Structure
 
 ```
 portfolio/
 │
-├── images/
-│   ├── logos/           # Logo design portfolio
-│   ├── bg-image-*.jpg   # Background images
-│   ├── dojo1-5.jpg      # LIA project screenshots
-│   ├── pixel1-4.jpg     # Coding project thumbnails
-│   └── *.svg            # Icons and UI elements
+├── public/
+│   ├── images/
+│   │   ├── logos/              # Logo design portfolio
+│   │   ├── pluggkompis.jpg     # Project screenshots
+│   │   ├── stitchtrack*.png    # Mobile app screenshots
+│   │   ├── savory.jpg
+│   │   ├── dojo1-5.jpg         # LIA internship screenshots
+│   │   └── pixel*.jpg          # Project thumbnails
+│   └── GabriellaFerm-CV-eng.pdf
 │
-├── js/
-│   ├── theme.js         # Dark mode functionality
-│   ├── scroll.js        # Scroll behavior and back-to-top
-│   └── modal.js         # Project detail modal
+├── src/
+│   ├── components/
+│   │   ├── layout/
+│   │   │   ├── Header.tsx      # Navigation with mobile menu
+│   │   │   ├── Footer.tsx      # Contact links
+│   │   │   ├── Section.tsx     # Reusable section wrapper
+│   │   │   └── BackToTop.tsx   # Scroll-to-top button
+│   │   ├── sections/
+│   │   │   ├── About.tsx       # Hero section with background image
+│   │   │   ├── Journey.tsx     # Experience and background
+│   │   │   ├── Skills.tsx      # Technical and soft skills
+│   │   │   └── Portfolio.tsx   # Project showcase
+│   │   ├── portfolio/
+│   │   │   ├── PortfolioCard.tsx   # Project card component
+│   │   │   ├── ProjectModal.tsx    # Detailed project view
+│   │   │   └── LogoGrid.tsx        # Design portfolio
+│   │   └── ui/
+│   │       └── Squiggle.tsx    # Animated underline component
+│   ├── context/
+│   │   ├── ThemeContext.tsx    # Theme context
+│   │   └── ThemeProvider.tsx   # Theme state management
+│   ├── hooks/
+│   │   └── useTheme.ts         # Theme hook
+│   ├── data/
+│   │   ├── projectsData.ts     # Project information
+│   │   └── logosData.ts        # Logo portfolio data
+│   ├── types/
+│   │   └── index.ts            # TypeScript type definitions
+│   ├── styles/
+│   │   ├── index.css           # Global resets
+│   │   └── App.css             # Main styles with CSS variables
+│   ├── App.tsx                 # Main app component
+│   └── main.tsx                # Entry point
 │
-├── index.html           # Main HTML file
-├── style.css            # All styling and responsive design
-└── README.md            # This file
+├── .github/
+│   └── workflows/
+│       └── deploy.yml          # GitHub Actions deployment
+│
+├── .vscode/
+│   └── settings.json           # VS Code workspace settings
+│
+├── .prettierrc                 # Prettier configuration
+├── .prettierignore             # Prettier ignore rules
+├── index.html                  # HTML entry point
+├── vite.config.ts              # Vite configuration
+├── tsconfig.json               # TypeScript configuration
+├── package.json                # Dependencies and scripts
+└── README.md                   # This file
 ```
 
-## 🎨 Design Highlights
+## 🎨 Design System
 
-- **Color Palette**: Soft beige tones (#f5f1e3, #dddacf) with pink accents (#da5d7e) for light mode; dark grays (#121212, #1a1a1a) with teal accents (#47bcca) for dark mode
-- **Typography**: Clean, modern fonts for readability and professional appearance
-- **Layout**: Grid-based design with fluid, responsive sections
-- **Accessibility**: Proper contrast ratios, semantic HTML, and keyboard navigation support
+### Color Palette
+
+**Light Mode:**
+
+- Background: `#f7f6f0`, `#f0eee6`, `#dfded8`
+- Text: `#24282d`, `#2f343a`
+- Accent: `#da5d7e` (pink)
+
+**Dark Mode:**
+
+- Background: `#24282d`, `#2f343a`, `#454a50`
+- Text: `#f7f6f0`, `#f0eee6`
+- Accent: `#47bcca` (teal)
+
+### Typography
+
+- **Headings**: Space Grotesk (400, 700)
+- **Body**: Barlow (400, 600, 700)
+- **Logo**: Comforter (cursive)
+
+### Design Principles
+
+- Mobile-first responsive design
+- Consistent spacing using CSS custom properties
+- Smooth transitions and animations
+- High contrast for accessibility
+- Clean, minimal aesthetic
 
 ## 📋 Sections
 
-1. **Hero/About** - Introduction with personal images and call-to-action
-2. **Journey & Experience** - Three-column grid detailing background and work history
-3. **Skills** - Comprehensive list of technical and soft skills
+1. **Hero/About** - Introduction with background image and personal photos
+2. **Journey** - Three-column grid detailing my path from design to development
+3. **Skills** - Card-based layout showcasing technical and soft skills
 4. **Portfolio**
-   - Coding projects with repository links
-   - LIA internship project with modal detail view
-   - Logo design showcase
-5. **Contact** - Footer with email, GitHub, and LinkedIn links
+   - **Coding Projects**: PluggKompis, StitchTrack, Savory, Dojo (LIA), and more
+   - **Design Work**: Logo portfolio from freelance and retail work
+5. **Contact** - Footer with email, GitHub, and LinkedIn
 
 ## 🚀 Key Projects Featured
 
+### PluggKompis - Homework Help Platform
+
+Full-stack platform connecting students with free homework help across Sweden
+
+- **Tech**: ASP.NET Core, React, TypeScript, Clean Architecture, Azure
+- **Live Demo**: [pluggkompis-client.vercel.app](https://pluggkompis-client.vercel.app)
+
+### StitchTrack - Mobile Row Counter App
+
+Local-first mobile app for knitters and crocheters to track projects
+
+- **Tech**: .NET MAUI, SQLite, MVVM, Cross-platform (iOS & Android)
+
+### Savory - Recipe Management App
+
+Full-stack recipe app with authentication and image uploads
+
+- **Tech**: ASP.NET Core, React, TypeScript, Azure, Clean Architecture
+- **Live Demo**: [savory-frontend.vercel.app](https://savory-frontend.vercel.app)
+
 ### Dojo Course Platform (LIA Internship)
 
-Full-stack course platform developed at InFiNetCode AB featuring:
+Comprehensive course platform built during internship at InFiNetCode AB
 
-- ASP.NET Core backend with Clean Architecture
-- React/TypeScript/Next.js frontend
-- OAuth authentication (GitHub, Google)
-- Stripe payment integration
-- Custom UI/UX design in Figma
+- **Tech**: ASP.NET Core, React, TypeScript, Next.js, Clean Architecture, MediatR, Stripe, OAuth
+- **Features**: GitHub/Google authentication, payment integration, Figma UI/UX design
 
-### Fork & Spoon
+## 🌐 Deployment
 
-Recipe application with modular backend architecture and user authentication.
+This portfolio is automatically deployed to GitHub Pages using GitHub Actions.
 
-### Clean Architecture API Demo
+### Deployment Process
 
-Backend demonstration using MediatR, OperationResult pattern, and unit testing.
+1. Push to `main` branch
+2. GitHub Actions workflow triggers
+3. Dependencies installed
+4. TypeScript compiled
+5. Vite build process runs
+6. Static files deployed to GitHub Pages
 
-### Dungeon Quest
+### Local Development
 
-Console-based RPG game with JSON persistence and Spectre.Console styling.
+```bash
+# Install dependencies
+npm install
 
-### To-Do List App
+# Start development server
+npm run dev
 
-Interactive console application with data validation and JSON storage.
+# Build for production
+npm run build
+
+# Preview production build
+npm run preview
+
+# Format code
+npm run format
+
+# Lint code
+npm run lint
+```
 
 ## 📱 Browser Support
 
@@ -99,15 +221,33 @@ Interactive console application with data validation and JSON storage.
 - Edge (latest)
 - Mobile browsers (iOS Safari, Chrome Mobile)
 
-## 🔄 Future Enhancements
+## ♿ Accessibility
 
-- [ ] Migrate to Next.js for improved performance and SEO
-- [ ] Add blog section for technical articles
-- [ ] Implement CMS for easier content updates
-- [ ] Add more interactive coding project demos
-- [ ] Create case studies for design projects
-- [ ] Add testimonials section
-- [ ] Integrate analytics
+- Semantic HTML structure
+- ARIA labels for interactive elements
+- Keyboard navigation support
+- High contrast ratios (WCAG AA compliant)
+- Respects `prefers-reduced-motion` for animations
+- Focus states for all interactive elements
+
+## 🔄 Migration Notes
+
+**Version 2.0** represents a complete rebuild from vanilla HTML/CSS/JS to React + TypeScript:
+
+### Key Improvements
+
+- ✅ Component-based architecture for better maintainability
+- ✅ TypeScript for type safety and better developer experience
+- ✅ Modern build tooling with Vite
+- ✅ Improved performance with code splitting
+- ✅ Enhanced animations with scroll-triggered effects
+- ✅ Better state management with Context API
+- ✅ Automated deployment with GitHub Actions
+- ✅ Professional code formatting and linting
+
+### Legacy Version
+
+The original HTML/CSS/JS portfolio is preserved in the `portfolio-v1-backup` branch for reference.
 
 ## 📧 Contact
 
@@ -126,3 +266,5 @@ The code structure can be used as reference, but please do not copy the content,
 **Built with ❤️ by Gabriella Frank Ferm**
 
 _"I believe the most exciting solutions come from the overlap of logic and creativity."_
+
+**Portfolio v2.0** - Rebuilt with React, TypeScript & Vite
