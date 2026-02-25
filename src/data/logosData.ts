@@ -11,6 +11,12 @@ const getLogoImage = (filename: string) => {
 
 export const logos: Logo[] = [
   {
+    id: 'retur-taggen',
+    name: 'ReturTaggen',
+    image: getLogoImage('retur-taggen.svg'),
+    alt: 'ReturTaggen logo',
+  },
+  {
     id: '4224',
     name: '4224',
     image: getLogoImage('4224.svg'),

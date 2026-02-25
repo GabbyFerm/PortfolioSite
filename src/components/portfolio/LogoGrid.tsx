@@ -5,8 +5,8 @@ export default function LogoGrid() {
     <div className="logo-section">
       <h3>Design</h3>
       <p>
-        Logos created for various companies during my time at Mercus Yrkeskläder, where I developed
-        logos for new businesses that needed branding for their clothing and promotional products.
+        A selection of logos created for various companies and clients — part of my broader
+        background in graphic design and visual branding.
       </p>
 
       <div className="logo-grid">
