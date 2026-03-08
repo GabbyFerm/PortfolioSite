@@ -13,6 +13,27 @@ const getProjectImage = (filename: string) => {
 
 export const projects: Project[] = [
   {
+    id: 'family-budget-bloom',
+    title: 'Family Budget Bloom',
+    shortDescription:
+      'A collaborative household financial tool built for shared economies, allowing family members to sync budgets in real-time.',
+    fullDescription:
+      'Developed during the She Builds event, Family Budget Bloom focuses on financial transparency for households. Built using "Vibe Coding" principles, the app transitions from an individual-user model to a shared household architecture. The core technical challenge involved architecting a secure data-sharing layer using Row Level Security (RLS) to ensure data privacy between different households while allowing seamless collaboration within them.',
+    image: getProjectImage('familybudgetbloom2.jpg'),
+    imageAlt: 'Family Budget Bloom app screenshot',
+    tags: ['React', 'TypeScript', 'Supabase', 'PostgreSQL', 'Tailwind CSS', 'Vibe Coding'],
+    features: [
+      'Shared household architecture supporting multiple members per home',
+      'Real-time synchronization of incomes and expenses across devices',
+      'Advanced Row Level Security (RLS) for multi-tenant data privacy',
+      'Automated "Sweep to Savings" logic for monthly budget surpluses',
+      'Interactive yearly summaries and goal-tracking visualizations',
+    ],
+    github: 'https://github.com/GabbyFerm/family-budget-bloom-DEMO',
+    demo: 'https://family-budget-bloom-demo.vercel.app/',
+    category: 'coding',
+  },
+  {
     id: 'pluggkompis',
     title: 'PluggKompis - Homework Help Platform',
     shortDescription:
