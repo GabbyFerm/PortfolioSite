@@ -34,6 +34,26 @@ export const projects: Project[] = [
     category: 'coding',
   },
   {
+    id: 'thesis',
+    title: 'Beyond the Code – Human Skills in the AI Era',
+    shortDescription:
+      'Thesis examining how AI changes the developer role and which human skills become essential when AI takes over more of the coding.',
+    fullDescription:
+      'This thesis investigates how AI-assisted code generation is changing the role of software developers, and which human skills become essential when AI handles more of the coding. Through a qualitative literature review combining academic sources and industry perspectives, the study identifies five key human skills: architectural thinking, critical reasoning, ethical judgement, collaboration, and creativity. The findings show that AI augments developers rather than replacing them — shifting the role from code producer to orchestrator. Passed with distinction (VG).',
+    image: getProjectImage('thesis.jpg'),
+    imageAlt: 'Beyond the Code thesis cover',
+    tags: ['Literature Review', 'AI', 'Human Skills', 'Software Development', 'YH Thesis'],
+    features: [
+      'Qualitative literature review combining academic and industry sources',
+      'Identifies five key human skills for the AI era',
+      'Compares optimistic industry perspectives with critical academic voices',
+      'Discusses implications for developer education',
+      'Passed with distinction (VG)',
+    ],
+    report: '/thesis.pdf',
+    category: 'coding',
+  },
+  {
     id: 'pluggkompis',
     title: 'PluggKompis - Homework Help Platform',
     shortDescription:
