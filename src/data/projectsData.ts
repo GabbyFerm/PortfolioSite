@@ -50,7 +50,7 @@ export const projects: Project[] = [
       'Discusses implications for developer education',
       'Passed with distinction (VG)',
     ],
-    report: '/thesis.pdf',
+    report: `${import.meta.env.BASE_URL}thesis.pdf`,
     category: 'coding',
   },
   {
