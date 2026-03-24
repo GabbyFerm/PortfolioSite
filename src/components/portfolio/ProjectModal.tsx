@@ -110,6 +110,11 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
               View Live Demo
             </a>
           )}
+          {project.report && (
+            <a href={project.report} target="_blank" rel="noopener noreferrer" className="button">
+              Read Report
+            </a>
+          )}
         </div>
       </div>
     </div>

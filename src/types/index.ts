@@ -14,13 +14,14 @@ export interface Project {
   fullDescription: string;
   image: string;
   imageAlt: string;
-  imageFit?: 'cover' | 'contain'; // For mobile app screenshots
+  imageFit?: 'cover' | 'contain';
   tags: string[];
   features?: string[];
   github?: string;
   demo?: string;
+  report?: string;
   category: 'coding' | 'design';
-  modalImages?: string[]; // For projects with multiple screenshots (like Dojo)
+  modalImages?: string[];
 }
 
 // Logo types

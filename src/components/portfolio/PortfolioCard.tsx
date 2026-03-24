@@ -50,6 +50,17 @@ export default function PortfolioCard({ project, onOpenModal }: PortfolioCardPro
               Live Demo
             </a>
           )}
+          {project.report && (
+            <a
+              href={project.report}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="portfolio-link"
+              onClick={(e) => e.stopPropagation()}
+            >
+              Read Report
+            </a>
+          )}
           <button className="portfolio-link portfolio-link-more" onClick={onOpenModal}>
             Read more →
           </button>
