@@ -1,7 +1,7 @@
 import type { Project } from '../types';
 
 const projectImages = import.meta.glob<{ default: string }>(
-  '../assets/images/projects/*.{jpg,png,svg}',
+  '../assets/images/projects/*.{jpg,png,svg,pdf}',
   { eager: true }
 );
 
