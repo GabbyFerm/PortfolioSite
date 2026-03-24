@@ -1,7 +1,7 @@
 import type { Project } from '../types';
 
 const projectImages = import.meta.glob<{ default: string }>(
-  '../assets/images/projects/*.{jpg,png,svg,pdf}',
+  '../assets/images/projects/*.{jpg,png,svg}',
   { eager: true }
 );
 
@@ -50,7 +50,7 @@ export const projects: Project[] = [
       'Discusses implications for developer education',
       'Passed with distinction (VG)',
     ],
-    report: '/thesis.pdf',
+    report: `${import.meta.env.BASE_URL}thesis.pdf`,
     category: 'coding',
   },
   {
