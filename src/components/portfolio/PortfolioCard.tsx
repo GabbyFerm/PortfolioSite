@@ -1,7 +1,7 @@
-import type { Project } from '../../types';
+import type { CodingProject } from '../../types';
 
 interface PortfolioCardProps {
-  project: Project;
+  project: CodingProject;
   onOpenModal: () => void;
 }
 

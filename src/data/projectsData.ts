@@ -1,4 +1,4 @@
-import type { Project } from '../types';
+import type { CodingProject } from '../types';
 
 const projectImages = import.meta.glob<{ default: string }>(
   '../assets/images/projects/*.{jpg,png,svg,pdf}',
@@ -11,7 +11,7 @@ const getProjectImage = (filename: string) => {
   return projectImages[path]?.default || '';
 };
 
-export const projects: Project[] = [
+export const projects: CodingProject[] = [
   {
     id: 'family-budget-bloom',
     title: 'Family Budget Bloom',

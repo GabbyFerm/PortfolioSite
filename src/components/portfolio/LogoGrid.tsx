@@ -2,13 +2,8 @@ import { logos } from '../../data/logosData';
 
 export default function LogoGrid() {
   return (
+    // Removed border-top from CSS, so no more dividing line
     <div className="logo-section">
-      <h3>Design</h3>
-      <p>
-        A selection of logos created for various companies and clients — part of my broader
-        background in graphic design and visual branding.
-      </p>
-
       <div className="logo-grid">
         {logos.map((logo) => (
           <div key={logo.id} className="logo-item">
