@@ -13,24 +13,24 @@ export default function Journey() {
             <Squiggle delay={0.2} />
           </div>
           <p>
-            I'm currently studying .NET development at NBI Handelsakademin, graduating June 2026. My
-            goal is to merge my technical skills with my creative design background. I'm passionate
-            about clean code, intuitive design, and user-friendly solutions.
+            I'm finishing my .NET development studies at NBI Handelsakademin in June 2026, wrapping
+            up my final internship and actively looking for my next role — in development, graphic
+            design, UI/UX design, or somewhere in between.
           </p>
           <p>
-            My career has taken me from creating visual identities as a designer (2006-2016), to
-            building customer relationships in workwear retail (2015-present), and now into the
-            world of software development. Each step has taught me something valuable: attention to
-            detail, problem-solving under pressure, and how to communicate effectively with
-            different stakeholders.
+            My path has been anything but straight: ten years as a freelance graphic designer, then
+            workwear retail and department leadership, and now a full pivot into tech. Each step has
+            taught me something valuable: attention to detail, problem-solving under pressure, and
+            how to communicate effectively with different stakeholders.
           </p>
           <p>
-            I believe the most exciting solutions come from the overlap of logic and creativity —
-            and I thrive in environments where those two worlds meet.
+            That mix is what I bring to the table. I think about structure and aesthetics at the
+            same time. Whether it's a brand identity, a UI, or a codebase — I care about the
+            details, the consistency, and how it feels to the person on the other end.
           </p>
           <p>
-            What drives me? Building things where great UX and solid code go hand in hand. I know
-            there's still so much to learn, and honestly—that's what makes this journey exciting.
+            What drives me? Building things where great design and solid code go hand in hand. I'm
+            looking for a team that values both.
           </p>
         </div>
 

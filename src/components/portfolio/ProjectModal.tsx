@@ -1,9 +1,9 @@
 import { useEffect } from 'react';
 import { HiXMark } from 'react-icons/hi2';
-import type { Project } from '../../types';
+import type { CodingProject } from '../../types';
 
 interface ProjectModalProps {
-  project: Project;
+  project: CodingProject;
   onClose: () => void;
 }
 
