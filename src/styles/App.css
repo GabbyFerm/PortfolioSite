@@ -894,7 +894,7 @@ body.dark-mode .skill-icon {
 }
 
 /* ============================================
-   PORTFOLIO CARD - Option A: Clean & Minimal
+   PORTFOLIO CARD 
    ============================================ */
 
 .portfolio-card {
@@ -1207,6 +1207,31 @@ body.dark-mode .modal-close:hover {
   }
 }
 
+/* Design UI gallery - landscape screenshots need more height */
+/* Uses contain so the full interface is always visible, never cropped */
+.modal-image-gallery.modal-gallery-design {
+  grid-template-columns: 1fr; /* One column — full width per screenshot */
+  gap: 1.5rem;
+}
+
+.modal-image-gallery.modal-gallery-design .modal-gallery-image {
+  height: auto; /* Let the image decide its own height */
+  max-height: 600px; /* Cap it so it doesn't go crazy on tall screens */
+  width: 100%;
+  object-fit: contain; /* Show the full UI, never crop */
+  background-color: var(--color-bg-2); /* Fills any letterbox gaps cleanly */
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  padding: 0.5rem;
+}
+
+/* On tablet and up, go 2 columns if there are multiple images */
+@media (min-width: 768px) {
+  .modal-image-gallery.modal-gallery-design {
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  }
+}
+
 /* Modal sections */
 .modal-section {
   margin-bottom: 2rem;
@@ -1325,8 +1350,6 @@ body.dark-mode .modal-feature-list li::before {
 
 .logo-section {
   margin-top: var(--spacing-lg);
-  padding-top: var(--spacing-lg);
-  border-top: 1px solid var(--color-border);
 }
 
 .logo-section h3 {
