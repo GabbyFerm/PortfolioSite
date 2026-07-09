@@ -13,9 +13,9 @@ export default function Journey() {
             <Squiggle delay={0.2} />
           </div>
           <p>
-            I'm finishing my .NET development studies at NBI Handelsakademin in June 2026, wrapping
-            up my final internship and actively looking for my next role — in development, graphic
-            design, UI/UX design, or somewhere in between.
+            I finished my .NET development studies at NBI Handelsakademin in June 2026 and am
+            actively looking for my next role — in development, graphic design, UI/UX design, or
+            somewhere in between.
           </p>
           <p>
             My path has been anything but straight: ten years as a freelance graphic designer, then
@@ -42,7 +42,7 @@ export default function Journey() {
           </div>
           <p>
             I'm a curious, service-minded problem solver who loves to build things that matter.
-            Whether it's designing, coding, crocheting, or hunting for the perfect color palette—I
+            Whether it's designing, coding, crocheting, or hunting for the perfect color palette — I
             approach everything with the same enthusiasm and attention to detail.
           </p>
           <p>
@@ -62,74 +62,130 @@ export default function Journey() {
           </p>
         </div>
 
-        {/* Block 3: Experience & Work */}
-        <div className="journey-block">
+        {/* Block 3: Experience — spans full width on desktop */}
+        <div className="journey-block journey-block-full">
           <div className="section-header">
             <h2>Experience & Work</h2>
             <Squiggle delay={0.6} />
           </div>
 
-          {/* InFiNetCode LIA */}
-          <div className="experience-item">
-            <h3>
-              <HiWrench className="experience-icon" />
-              InFiNetCode AB, Göteborg
-            </h3>
-            <p>
-              <strong>.NET/Fullstack Developer (LIA Internship)</strong>
-              September - November 2025
-            </p>
-            <ul className="experience-list">
-              <li>Developed Dojo course platform using Clean Architecture</li>
-              <li>Implemented OAuth authentication (GitHub, Google) and Stripe payments</li>
-              <li>Built APIs with ASP.NET Core, React, TypeScript, and Next.js</li>
-              <li>Designed UI/UX in Figma and implemented frontend components</li>
-            </ul>
-          </div>
+          {/* Two-column grid for experience items on desktop */}
+          <div className="experience-items-grid">
+            {/* Code4Value LIA */}
+            <div className="experience-item">
+              <h3>
+                <HiWrench className="experience-icon" />
+                Code4Value, Jonsered
+              </h3>
+              <p>
+                <strong>Full-Stack & UX Developer (LIA Internship)</strong>
+                March - June 2026
+              </p>
+              <ul className="experience-list">
+                <li>
+                  Contributed to multiple client projects from the ground up — writing code that
+                  shipped to real production environments
+                </li>
+                <li>
+                  Built a C# background worker processing assignments from an Azure queue, executing
+                  jobs in a Docker cluster and reporting results back to a Supabase database
+                </li>
+                <li>
+                  Integrated third-party APIs into client-facing applications, working directly with
+                  external services and data flows
+                </li>
+                <li>
+                  Worked on UI development and enhancement across all projects — from initial
+                  implementation to iterative improvements based on client feedback
+                </li>
+                <li>
+                  Worked as part of a three-person development team, meeting with clients,
+                  representing the team, and integrating AI tools meaningfully into daily
+                  development workflow
+                </li>
+              </ul>
+            </div>
 
-          {/* Mercus Workwear */}
-          <div className="experience-item">
-            <h3>
-              <HiWrench className="experience-icon" />
-              Mercus Workwear, Göteborg
-            </h3>
-            <p>
-              <strong>Sales Advisor & Department Lead</strong> 2017 - Present
-            </p>
-            <ul className="experience-list">
-              <li>Customer consulting for workwear, PPE, and branded products</li>
-              <li>Department responsibility (shoes, decals, PPE)</li>
-              <li>Invoice management, quoting, and supplier relationships</li>
-              <li>Temp Store Manager (2022-2023): Led daily operations and team</li>
-            </ul>
-          </div>
+            {/* InFiNetCode LIA */}
+            <div className="experience-item">
+              <h3>
+                <HiWrench className="experience-icon" />
+                InFiNetCode AB, Göteborg
+              </h3>
+              <p>
+                <strong>Full-Stack & UI Developer (LIA Internship)</strong>
+                September - November 2025
+              </p>
+              <ul className="experience-list">
+                <li>
+                  Contributed to the Dojo learning platform built on Clean Architecture using
+                  ASP.NET Core, EF Core, C#, React, TypeScript, and Next.js
+                </li>
+                <li>
+                  Took end-to-end ownership of the student dashboard — from Figma design through to
+                  backend integration and deployment
+                </li>
+                <li>
+                  Implemented authentication flows (GitHub, Google, Identity), RBAC, refresh tokens,
+                  and third-party API integrations
+                </li>
+                <li>
+                  Integrated Stripe's payment solution and collaborated on UI component development
+                  and visual decisions
+                </li>
+                <li>
+                  Applied design thinking in a technical environment — translating Figma prototypes
+                  into responsive, component-based frontend code
+                </li>
+              </ul>
+            </div>
 
-          {/* GF Design */}
-          <div className="experience-item">
-            <h3>
-              <HiPaintBrush className="experience-icon" />
-              GF Design
-            </h3>
-            <p>
-              <strong>Freelance Graphic Designer</strong> 2006 - 2016
-            </p>
-            <ul className="experience-list">
-              <li>Developed brand identities, logos, and websites</li>
-              <li>Focused on user experience and visual communication</li>
-              <li>Produced print materials with high precision</li>
-            </ul>
-          </div>
+            {/* Mercus Workwear */}
+            <div className="experience-item">
+              <h3>
+                <HiWrench className="experience-icon" />
+                Mercus Workwear, Göteborg
+              </h3>
+              <p>
+                <strong>Sales Advisor & Department Lead</strong>
+                2017 - Present
+              </p>
+              <ul className="experience-list">
+                <li>Customer consulting for workwear, PPE, and branded products</li>
+                <li>Department responsibility (shoes, decals, PPE)</li>
+                <li>Invoice management, quoting, and supplier relationships</li>
+                <li>Temp Store Manager (2022–2023): Led daily operations and team</li>
+              </ul>
+            </div>
 
-          {/* Known For */}
-          <div className="experience-item">
-            <h3>
-              <HiSparkles className="experience-icon" />
-              Known for:
-            </h3>
-            <p>
-              Strong communication, customer service excellence, problem-solving mindset, and always
-              staying one step ahead to deliver exceptional results.
-            </p>
+            {/* GF Design */}
+            <div className="experience-item">
+              <h3>
+                <HiPaintBrush className="experience-icon" />
+                GF Design
+              </h3>
+              <p>
+                <strong>Freelance Graphic Designer</strong>
+                2006 - 2016
+              </p>
+              <ul className="experience-list">
+                <li>Developed brand identities, logos, and websites</li>
+                <li>Focused on user experience and visual communication</li>
+                <li>Produced print materials with high precision</li>
+              </ul>
+            </div>
+
+            {/* Known For */}
+            <div className="experience-item">
+              <h3>
+                <HiSparkles className="experience-icon" />
+                Known for
+              </h3>
+              <p>
+                Strong communication, customer service excellence, problem-solving mindset, and
+                always staying one step ahead to deliver exceptional results.
+              </p>
+            </div>
           </div>
         </div>
       </div>

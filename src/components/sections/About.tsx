@@ -27,14 +27,17 @@ export default function About() {
           <div className="about-content">
             <div className="about-text">
               <h1>Hi, I'm Gabriella - but most people call me Gabby!</h1>
-              <p className="lead">I'm a student, crazy cat person and creation lover.</p>
               <p className="lead">
-                I enjoy making things — whether that's with code, yarn, a paintbrush, or pixels. I
-                believe the best ideas come from combining creativity and curiosity. Right now, I'm
-                on an exciting path into tech, learning and building every day.
+                I'm a designer, developer, crazy cat person and creation lover.
               </p>
               <p className="lead">
-                Also: I'm a lifelong Star Wars nerd and yes — the hair color probably won't be the
+                I enjoy making things — whether that's with code, yarn, a paintbrush, or pixels. I
+                believe the best ideas come from combining creativity and curiosity. I recently
+                graduated and I'm looking for a team where design thinking and solid code go hand in
+                hand.
+              </p>
+              <p className="lead">
+                Also: I'm a lifelong Star Wars nerd and yes — the hair style probably won't be the
                 same next time you meet me...
               </p>
               <a
