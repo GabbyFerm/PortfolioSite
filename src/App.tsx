@@ -11,20 +11,27 @@ import ProjectPage from './components/pages/ProjectPage';
 import ScrollToTop from './components/ui/ScrollToTop';
 import './styles/App.css';
 
-// HomePage renders all sections.
-// It also handles scrolling to a section when navigating back from a project page.
-// e.g. clicking "Skills" in the header from a project page navigates home
-// and passes { scrollTo: 'skills' } as location state.
+interface LocationState {
+  scrollTo?: string;
+}
+
 function HomePage() {
   const location = useLocation();
 
   useEffect(() => {
-    const scrollTarget = location.state?.scrollTo;
+    // Cast state to our known shape — useLocation types it as unknown by default
+    const state = location.state as LocationState | null;
+    const scrollTarget = state?.scrollTo;
+
     if (scrollTarget) {
-      // Small delay lets the sections render before we try to scroll
-      setTimeout(() => {
+      // Store the timeout id so we can clear it if the component unmounts
+      // before the scroll fires — prevents a memory leak
+      const timer = setTimeout(() => {
         document.getElementById(scrollTarget)?.scrollIntoView({ behavior: 'smooth' });
       }, 100);
+
+      // Cleanup — cancel the timeout if the component unmounts early
+      return () => clearTimeout(timer);
     }
   }, [location.state]);
 
