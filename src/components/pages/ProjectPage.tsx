@@ -214,7 +214,7 @@ export default function ProjectPage() {
             )}
             {project.demo && (
               <a href={project.demo} target="_blank" rel="noopener noreferrer" className="button">
-                View Live Demo
+                {project.demoLabel ?? 'View Live Demo'}
               </a>
             )}
             {project.report && (
