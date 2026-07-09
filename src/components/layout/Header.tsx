@@ -1,64 +1,87 @@
 import { useState } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { HiSun, HiMoon, HiBars3, HiXMark } from 'react-icons/hi2';
 import { useTheme } from '../../hooks/useTheme';
 
 export default function Header() {
   const { theme, toggleTheme } = useTheme();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
-  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+  const closeMenu = () => setIsMenuOpen(false);
 
-  const handleLogoClick = (e: React.MouseEvent) => {
-    e.preventDefault();
+  // Scroll to a section by id.
+  // If we're on a project page, navigate home first and pass the target section
+  // as state — HomePage picks this up and scrolls after render.
+  const scrollToSection = (sectionId: string) => {
+    closeMenu();
+    if (location.pathname !== '/') {
+      navigate('/', { state: { scrollTo: sectionId } });
+    } else {
+      document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const goHome = () => {
+    closeMenu();
+    navigate('/');
     window.scrollTo({ top: 0, behavior: 'smooth' });
-    window.history.pushState('', document.title, window.location.pathname);
   };
 
   return (
     <header className="site-header">
       <div className="container header-content">
-        {/* Logo */}
-        <h1 className="logo">
-          <a href="#" onClick={handleLogoClick} aria-label="Go to top of page">
+        {/* Logo — always navigates to top of home page */}
+        <p className="logo">
+          <button onClick={goHome} aria-label="Go to top of page" className="logo-btn">
             Gabriella Frank Ferm
-          </a>
-        </h1>
+          </button>
+        </p>
 
         <div className="nav-and-toggle">
-          {/* Mobile Menu Button */}
-          <button className="mobile-menu-btn" onClick={toggleMenu} aria-label="Toggle menu">
+          {/* Mobile menu toggle */}
+          <button
+            className="mobile-menu-btn"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
+            aria-expanded={isMenuOpen}
+            aria-controls="nav-menu"
+          >
             {isMenuOpen ? <HiXMark size={28} /> : <HiBars3 size={28} />}
           </button>
 
-          {/* Navigation Links */}
-          <nav className={`nav-menu ${isMenuOpen ? 'open' : ''}`}>
+          {/* Navigation */}
+          <nav
+            id="nav-menu"
+            className={`nav-menu ${isMenuOpen ? 'open' : ''}`}
+            aria-label="Main navigation"
+          >
             <ul className="nav-links">
               <li>
-                <a href="#skills" onClick={() => setIsMenuOpen(false)}>
+                <button onClick={() => scrollToSection('skills')} className="nav-link-btn">
                   Skills
-                </a>
+                </button>
               </li>
               <li>
-                <a href="#portfolio" onClick={() => setIsMenuOpen(false)}>
+                <button onClick={() => scrollToSection('portfolio')} className="nav-link-btn">
                   Portfolio
-                </a>
+                </button>
               </li>
               <li>
-                <a href="#contact" onClick={() => setIsMenuOpen(false)}>
+                <button onClick={() => scrollToSection('contact')} className="nav-link-btn">
                   Contact
-                </a>
+                </button>
               </li>
             </ul>
           </nav>
 
-          {/* Theme Toggle Button */}
+          {/* Theme toggle */}
           <button
             onClick={toggleTheme}
             className="theme-toggle-btn"
             aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
-            title={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
           >
-            {/* Show Sun icon in dark mode, Moon icon in light mode */}
             {theme === 'dark' ? <HiSun size={24} /> : <HiMoon size={24} />}
           </button>
         </div>

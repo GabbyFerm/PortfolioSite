@@ -1,27 +1,49 @@
-import type { CodingProject } from '../types';
+import type { UnifiedProject } from '../types';
 
-const projectImages = import.meta.glob<{ default: string }>(
-  '../assets/images/projects/*.{jpg,png,svg,pdf}',
+// ─── Image helpers ─────────────────────────────────────────────────────────────
+// One glob picks up every image across all project subfolders.
+// The ** wildcard means "any subfolder depth".
+const allImages = import.meta.glob<{ default: string }>(
+  '../assets/images/projects/**/*.{jpg,jpeg,png,svg}',
   { eager: true }
 );
 
-// Helper to get project image path
-const getProjectImage = (filename: string) => {
-  const path = `../assets/images/projects/${filename}`;
-  return projectImages[path]?.default || '';
+// Get a single image by its path relative to the projects/ folder.
+// Use this when you know the exact filename.
+const img = (path: string): string => {
+  const key = `../assets/images/projects/${path}`;
+  return allImages[key]?.default ?? '';
 };
 
-export const projects: CodingProject[] = [
+// Get all images from a specific subfolder, sorted alphabetically.
+// Numbered prefixes like 01-home.jpg control display order.
+// Only picks up direct children — ignores nested subfolders.
+const fromFolder = (folderPath: string): string[] =>
+  Object.entries(allImages)
+    .filter(([key]) => {
+      const prefix = `../assets/images/projects/${folderPath}/`;
+      const rest = key.slice(prefix.length);
+      return key.startsWith(prefix) && !rest.includes('/');
+    })
+    .sort(([a], [b]) => a.localeCompare(b))
+    .map(([, mod]) => mod.default);
+
+// Get the first image from a folder — used for card thumbnails.
+// Put your preferred cover image first with a 01- prefix.
+const firstFrom = (folderPath: string): string => fromFolder(folderPath)[0] ?? '';
+
+// ─── Projects ──────────────────────────────────────────────────────────────────
+export const projects: UnifiedProject[] = [
   {
     id: 'family-budget-bloom',
     title: 'Family Budget Bloom',
+    cardImage: img('family-budget-bloom/01-familybudgetbloom.jpg'),
+    imageAlt: 'Family Budget Bloom app screenshot',
     shortDescription:
       'A collaborative household financial tool built for shared economies, allowing family members to sync budgets in real-time.',
-    fullDescription:
+    about:
       'Developed during the She Builds event, Family Budget Bloom focuses on financial transparency for households. Built using "Vibe Coding" principles, the app transitions from an individual-user model to a shared household architecture. The core technical challenge involved architecting a secure data-sharing layer using Row Level Security (RLS) to ensure data privacy between different households while allowing seamless collaboration within them.',
-    image: getProjectImage('familybudgetbloom2.jpg'),
-    imageAlt: 'Family Budget Bloom app screenshot',
-    tags: ['React', 'TypeScript', 'Supabase', 'PostgreSQL', 'Tailwind CSS', 'Vibe Coding'],
+    tags: ['React', 'TypeScript', 'Supabase', 'PostgreSQL', 'Tailwind CSS'],
     features: [
       'Shared household architecture supporting multiple members per home',
       'Real-time synchronization of incomes and expenses across devices',
@@ -31,17 +53,17 @@ export const projects: CodingProject[] = [
     ],
     github: 'https://github.com/GabbyFerm/family-budget-bloom-DEMO',
     demo: 'https://family-budget-bloom-demo.vercel.app/',
-    category: 'coding',
+    screenshots: fromFolder('family-budget-bloom'),
   },
   {
     id: 'thesis',
     title: 'Beyond the Code – Human Skills in the AI Era',
+    cardImage: img('thesis/01-thesis.jpg'),
+    imageAlt: 'Beyond the Code thesis cover',
     shortDescription:
       'Thesis examining how AI changes the developer role and which human skills become essential when AI takes over more of the coding.',
-    fullDescription:
+    about:
       'This thesis investigates how AI-assisted code generation is changing the role of software developers, and which human skills become essential when AI handles more of the coding. Through a qualitative literature review combining academic sources and industry perspectives, the study identifies five key human skills: architectural thinking, critical reasoning, ethical judgement, collaboration, and creativity. The findings show that AI augments developers rather than replacing them — shifting the role from code producer to orchestrator. Passed with distinction (VG).',
-    image: getProjectImage('thesis.jpg'),
-    imageAlt: 'Beyond the Code thesis cover',
     tags: ['Literature Review', 'AI', 'Human Skills', 'Software Development', 'YH Thesis'],
     features: [
       'Qualitative literature review combining academic and industry sources',
@@ -51,85 +73,187 @@ export const projects: CodingProject[] = [
       'Passed with distinction (VG)',
     ],
     report: `${import.meta.env.BASE_URL}thesis.pdf`,
-    category: 'coding',
   },
   {
     id: 'pluggkompis',
-    title: 'PluggKompis - Homework Help Platform',
+    title: 'PluggKompis — Homework Help Platform',
+    cardImage: firstFrom('pluggkompis/screen'),
+    imageAlt: 'PluggKompis platform screenshot',
     shortDescription:
       'Full-stack platform connecting students with free homework help at libraries and youth centers across Sweden.',
-    fullDescription:
-      'A full-stack platform connecting students with free homework help at libraries and youth centers across Sweden. Features multi-role authentication, booking management and volunteer scheduling. Built with Clean Architecture and demo deployed to Vercel & Azure.',
-    image: getProjectImage('pluggkompis.jpg'),
-    imageAlt: 'PluggKompis platform screenshot',
-    tags: ['ASP.NET Core', 'React', 'TypeScript', 'Clean Architecture', 'Azure'],
+    about:
+      'PluggKompis is a platform that connects students and parents with free homework help offered at libraries, youth centers, and study associations across Sweden. Built as a final course project together with Mohanad Al-Daghestani, the platform supports three distinct user roles — students, volunteers, and coordinators — each with their own dashboard and workflows. I was responsible for all UI/UX design in Figma, the complete React/TypeScript frontend, and contributed to the initial backend setup. Mohanad then took ownership of refactoring and expanding the backend as the frontend grew in complexity. The backend runs on Azure with a Supabase PostgreSQL database.',
+    tags: [
+      'React',
+      'TypeScript',
+      'Vite',
+      'React Router',
+      'Tailwind CSS',
+      'ASP.NET Core',
+      'PostgreSQL',
+      'Supabase',
+      'Azure',
+      'Figma',
+      'Leaflet',
+      'Zod',
+    ],
     features: [
-      'Multi-role authentication (students, volunteers, coordinators)',
-      'Booking management system',
-      'Volunteer scheduling',
-      'Clean Architecture implementation',
-      'Deployed to Vercel & Azure',
+      'Designed all UI/UX in Figma — wireframes, user journeys, design system, and final screens',
+      'Built the complete React/TypeScript frontend from scratch',
+      'Multi-role authentication supporting students, volunteers, and coordinators',
+      'Booking management system with slot scheduling and volunteer coordination',
+      'Form validation with React Hook Form and Zod',
+      'Backend built with ASP.NET Core, deployed to Azure with Supabase PostgreSQL',
     ],
     github: 'https://github.com/PluggKompis',
     demo: 'https://pluggkompis-client.vercel.app',
-    category: 'coding',
+    designGoals: [
+      'Design role-specific dashboards that feel distinct but visually consistent',
+      'Create a booking flow that is frictionless for younger students',
+      'Communicate trust and safety through the visual tone',
+      'Build a reusable component library that the whole team could work from',
+    ],
+    designPhases: [
+      {
+        title: 'Wireframes',
+        description:
+          'Low-fidelity wireframes mapping out the core screens before any visual decisions were made. The focus was on structure, hierarchy, and making sure the layout worked for all three user roles.',
+        images: fromFolder('pluggkompis/wireframes'),
+      },
+      {
+        title: 'User Journey & Site Map',
+        description:
+          'Mapping how each role — student, volunteer, and coordinator — moves through the platform. The site map established the information architecture before any screens were designed.',
+        images: fromFolder('pluggkompis/user-journey'),
+      },
+      {
+        title: 'Design System',
+        description:
+          'A shared component library covering typography, colour tokens, buttons, form elements, and cards. Building this first meant every screen stayed visually consistent regardless of which role was using it.',
+        images: fromFolder('pluggkompis/design-system'),
+      },
+      {
+        title: 'Final UI',
+        description:
+          'High-fidelity screens for all three user roles, designed in Figma and handed off to the development team. Every screen was designed mobile-first and reviewed against the design system before implementation.',
+        images: fromFolder('pluggkompis/final-ui'),
+      },
+    ],
+    screenshots: fromFolder('pluggkompis/screen'),
+    designReflection:
+      'Designing and building the same product gave me a rare perspective — I could make design decisions knowing exactly how they would be implemented, and catch frontend complexity early. Working with Mohanad also taught me a lot about clear handoff and communication within a team. The division of ownership that emerged naturally — me on design and frontend, him on backend architecture — meant we could both go deep rather than spreading thin.',
   },
   {
     id: 'stitchtrack',
-    title: 'StitchTrack - Mobile Row Counter App',
-    shortDescription:
-      'A local-first, privacy-focused mobile app for knitters and crocheters to track row counts, projects, and sessions.',
-    fullDescription:
-      'A local-first, privacy-focused mobile app for knitters and crocheters to track row counts, projects, and sessions. Built as a personal passion project to solve a real need in my own creative practice. Still a work in progress!',
-    image: getProjectImage('stitchtrack1.jpg'),
+    title: 'StitchTrack — Mobile Row Counter App',
+    cardImage: firstFrom('stitchtrack/screen'),
     imageAlt: 'StitchTrack mobile app screenshot',
-    imageFit: 'contain',
-    tags: ['.NET MAUI', 'SQLite', 'MVVM', 'Cross-platform'],
-    features: [
-      'Local-first data storage',
-      'Row counter with project tracking',
-      'Session management',
-      'MVVM architecture',
-      'Cross-platform (iOS & Android)',
+    shortDescription:
+      'A local-first, privacy-focused mobile app for knitters and crocheters — designed, built, and shipped to Google Play solo.',
+    about:
+      'StitchTrack is a personal passion project born from a real need in my own creative practice — I wanted a simple, distraction-free row counter that worked without an account, an internet connection, or giving away my data. I am both the designer and the developer, and the app is fully shipped and live on Google Play. Built with .NET MAUI following Clean Architecture across four layers (Domain, Application, Infrastructure, UI), using SQLite via Entity Framework Core for fully local storage and MVVM for data binding. The app went through a two-week closed test phase where I expanded it significantly based on user feedback and my own testing, resulting in a feature-complete v1.',
+    tags: [
+      '.NET MAUI',
+      'SQLite',
+      'Entity Framework Core',
+      'MVVM',
+      'Clean Architecture',
+      'NUnit',
+      'FluentAssertions',
+      'GitHub Actions',
+      'Android',
+      'iOS',
+      'Figma',
     ],
-    modalImages: [
-      getProjectImage('stitchtrack1.png'),
-      getProjectImage('stitchtrack2.png'),
-      getProjectImage('stitchtrack3.png'),
+    features: [
+      'Published and live on Google Play — fully shipped solo project',
+      'Multiple counters per project with individual row tracking and notes per row',
+      'Project management with colour tags, project tags, needle/hook size, and total rows',
+      'Photo support — cover photo, pattern files, and inspiration photos per project',
+      'Session tracking with a statistics dashboard filtered by today, week, month, and all time',
+      'Full data export to JSON and CSV, and import from JSON to restore projects, counters, and session history',
+      'Quick counter mode — start counting immediately without creating a project',
+      'Haptic feedback toggle and theme settings (light/dark mode)',
+      'Local-first architecture — no account required, all data stays on device',
+      'Clean Architecture across Domain, Application, Infrastructure, and MAUI layers',
+      'NUnit + FluentAssertions test suite with CI/CD via GitHub Actions',
     ],
     github: 'https://github.com/GabbyFerm/StitchTrack',
-    category: 'coding',
+    demo: 'https://play.google.com/store/apps/details?id=com.gabbyferm.stitchtrack',
+    demoLabel: 'Google Play',
+    designGoals: [
+      'Design a one-handed friendly interface for use while crafting',
+      'Create a full light and dark mode colour system',
+      'Keep the UI minimal so it never competes with the craft itself',
+      'Design clear visual feedback for counter interactions',
+    ],
+    designPhases: [
+      // Wireframes coming soon — uncomment and add folder when ready:
+      // {
+      //   title: 'Wireframes',
+      //   description: '...',
+      //   images: fromFolder('stitchtrack/wireframes'),
+      // },
+      {
+        title: 'Final UI',
+        description:
+          'High-fidelity screens designed in Figma for both light and dark mode. The colour tokens were built for theming from day one — both modes were designed in parallel so the design system stays consistent in either context.',
+        images: fromFolder('stitchtrack/final-ui'),
+      },
+    ],
+    screenshots: fromFolder('stitchtrack/screen'),
+    designReflection:
+      'Designing something for yourself is both easier and harder than designing for a client. I had total freedom but also had to consciously separate "what I want" from "what a user needs". The two-week closed test phase was genuinely valuable — real users revealed things I had completely missed, including that tap targets needed to be larger and that the session dashboard needed more granular time filtering than I originally planned.',
   },
   {
     id: 'savory',
-    title: 'Savory - Recipe Management App',
-    shortDescription:
-      'Full-stack recipe app with user auth, recipe CRUD, profile customization, and image uploads via presigned URLs.',
-    fullDescription:
-      'Savory is a full‑stack recipe app (React + TypeScript, ASP.NET Core) featuring user auth, recipe CRUD, profile customization, and image uploads via presigned URLs. Built with clean architecture and demo deployed to Vercel & Azure.',
-    image: getProjectImage('savory.jpg'),
+    title: 'Savory — Recipe Management App',
+    cardImage: img('savory/01-savory.jpg'),
     imageAlt: 'Savory recipe app screenshot',
-    tags: ['ASP.NET Core', 'React', 'TypeScript', 'Azure', 'Clean Architecture'],
+    shortDescription:
+      'Full-stack recipe manager with Clean Architecture, CQRS, JWT auth, and image uploads. Built solo as a school assignment.',
+    about:
+      'Savory is a personal recipe management app built solo as a school assignment for the Advanced Object-Oriented Programming course. Users can create accounts, add recipes with ingredients, organize by category, upload images, and manage their own digital cookbook. The backend is built with .NET 8 following Clean Architecture and the CQRS pattern via MediatR. Authentication uses ASP.NET Core Identity with JWT tokens, and all data access goes through a Repository pattern with Entity Framework Core. The project includes both unit and integration tests covering handlers, mappings, and full auth flows.',
+    tags: [
+      'ASP.NET Core',
+      '.NET 8',
+      'React',
+      'TypeScript',
+      'Clean Architecture',
+      'CQRS',
+      'MediatR',
+      'Entity Framework Core',
+      'JWT',
+      'FluentValidation',
+      'xUnit',
+      'Azure',
+      'GitHub Actions',
+    ],
     features: [
-      'User authentication and authorization',
-      'Recipe CRUD operations',
-      'Profile customization',
-      'Image uploads with presigned URLs',
-      'Clean architecture implementation',
+      'User registration and JWT authentication with ASP.NET Core Identity',
+      'Recipe CRUD with server-side filtering by category, ingredient, and search term',
+      'Server-side sorting by title, date, and cook time',
+      'Recipe image upload (jpg, png, webp — max 5MB)',
+      'Dashboard statistics: total recipes, category breakdown, averages, recent recipes',
+      'CQRS pattern via MediatR with Commands and Queries',
+      'Input validation with FluentValidation and custom OperationResult pattern',
+      'Structured logging with Serilog (console + file output)',
+      '11 unit tests and 3 integration tests — all passing in CI/CD pipeline',
+      'CI/CD via GitHub Actions with automated test runs and code format checks',
     ],
     github: 'https://github.com/GabbyFerm/Savory-Backend',
     demo: 'https://savory-frontend.vercel.app',
-    category: 'coding',
+    screenshots: fromFolder('savory'),
   },
   {
     id: 'dojo',
     title: 'Dojo Course Platform',
+    cardImage: firstFrom('dojo/screen'),
+    imageAlt: 'Dojo platform overview',
     shortDescription:
       'Full-stack course platform built during LIA internship with Clean Architecture, Identity, and payment integration.',
-    fullDescription:
-      'During my internship at InFiNetCode AB, I worked as a .NET/Fullstack Developer on the development of Dojo, a comprehensive course platform. I was involved in the entire development process — from design in Figma to implementation of functionality using ASP.NET Core, Entity Framework Core, React, TypeScript, and Next.js, based on Clean Architecture and PipelineBehavior/MediatR patterns.',
-    image: getProjectImage('dojo1.jpg'),
-    imageAlt: 'Dojo platform overview',
+    about:
+      'During my internship at InFiNetCode AB, I worked as a .NET/Fullstack Developer on Dojo — a comprehensive course platform. I was involved in the entire process, from UI/UX design in Figma to implementation using ASP.NET Core, Entity Framework Core, React, TypeScript, and Next.js, based on Clean Architecture and MediatR patterns. The platform is still in active development with subsequent LIA students continuing to build on it.',
     tags: [
       'ASP.NET Core',
       'React',
@@ -139,71 +263,25 @@ export const projects: CodingProject[] = [
       'MediatR',
       'Stripe',
       'OAuth',
+      'Figma',
     ],
     features: [
-      'Authentication & Identity: Implemented GitHub and Google OAuth login with refresh tokens',
-      'API Development: Built and integrated APIs between backend and frontend',
-      'Payment Integration: Developed and tested Stripe payment solution',
-      'UI/UX Design: Designed landing pages, course pages, events, and student dashboard in Figma',
-      'Architecture: Worked with Clean Architecture principles and maintained scalable codebase structure',
+      'Implemented GitHub and Google OAuth login with refresh tokens',
+      'Built and integrated APIs between backend and frontend',
+      'Developed and tested Stripe payment solution',
+      'Designed landing page, course pages, events, and student dashboard in Figma',
+      'Worked with Clean Architecture principles throughout the codebase',
     ],
-    modalImages: [
-      getProjectImage('dojo1.jpg'),
-      getProjectImage('dojo2.jpg'),
-      getProjectImage('dojo3.jpg'),
-      getProjectImage('dojo4.jpg'),
-      getProjectImage('dojo5.jpg'),
+    designPhases: [
+      {
+        title: 'Final UI',
+        description:
+          'UI designs created in Figma covering the landing page, course browsing, events, and the student dashboard. Designed mobile-first and reviewed with the development team before implementation.',
+        images: fromFolder('dojo/final-ui'),
+      },
     ],
-    category: 'coding',
-  },
-  {
-    id: 'fork-and-spoon',
-    title: 'Fork & Spoon',
-    shortDescription:
-      'In-progress recipe app with clean architecture, user auth, and modular backend. Frontend coming soon!',
-    fullDescription:
-      'In-progress recipe app with clean architecture, user auth, and modular backend. Frontend coming soon!',
-    image: getProjectImage('forkspoon.jpg'),
-    imageAlt: 'Fork & Spoon project',
-    tags: ['ASP.NET Core', 'Clean Architecture', 'Entity Framework'],
-    github: 'https://github.com/GabbyFerm/Fork-and-spoon',
-    category: 'coding',
-  },
-  {
-    id: 'clean-architecture-api',
-    title: 'Clean Architecture API',
-    shortDescription:
-      'Backend demo using MediatR, OperationResult, clean layering, and in-memory unit tests.',
-    fullDescription:
-      'Backend demo using MediatR, OperationResult, clean layering, and in-memory unit tests.',
-    image: getProjectImage('pixel2.jpg'),
-    imageAlt: 'Clean Architecture API project',
-    tags: ['ASP.NET Core', 'MediatR', 'Clean Architecture', 'Unit Testing'],
-    github: 'https://github.com/GabbyFerm/OperationResultDemo',
-    category: 'coding',
-  },
-  {
-    id: 'dungeon-quest',
-    title: 'Dungeon Quest',
-    shortDescription:
-      'A console RPG in C# with combat, progression, and save/load via JSON. Styled with Spectre.Console.',
-    fullDescription:
-      'A console RPG in C# with combat, progression, and save/load via JSON. Styled with Spectre.Console.',
-    image: getProjectImage('pixel3.jpg'),
-    imageAlt: 'Dungeon Quest game',
-    tags: ['C#', 'Console App', 'JSON', 'Spectre.Console'],
-    github: 'https://github.com/GabbyFerm/TextBasedAdventure',
-    category: 'coding',
-  },
-  {
-    id: 'todo-list',
-    title: 'To-Do List App',
-    shortDescription: 'Console to-do app with JSON persistence, validation, and interactive UI.',
-    fullDescription: 'Console to-do app with JSON persistence, validation, and interactive UI.',
-    image: getProjectImage('pixel4.jpg'),
-    imageAlt: 'To-Do List application',
-    tags: ['C#', 'Console App', 'JSON'],
-    github: 'https://github.com/GabbyFerm/ToDoListApp',
-    category: 'coding',
+    screenshots: fromFolder('dojo/screen'),
+    designReflection:
+      'This project taught me how to design within real technical constraints. Because I was also part of the development team, I saw firsthand how design decisions affect implementation complexity. I became much more intentional about spacing systems and component reuse as a result.',
   },
 ];
