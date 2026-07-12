@@ -919,7 +919,7 @@ body.dark-mode .skill-icon {
 
 .portfolio-intro p {
   color: var(--color-text-secondary);
-  max-width: 700px;
+  max-width: 900px;
 }
 
 /* Portfolio Grid - Mobile first */
@@ -1036,6 +1036,22 @@ body.dark-mode .skill-icon {
   flex-direction: column;
   gap: 0;
   margin-top: auto;
+}
+
+/* Year label — appears on print cards and print page header */
+.portfolio-card-year {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  margin-bottom: 0.25rem;
+  font-style: italic;
+}
+
+.project-year {
+  font-size: 1rem;
+  color: var(--color-text-muted);
+  font-style: italic;
+  margin-top: -0.5rem;
+  margin-bottom: var(--spacing-md);
 }
 
 /* Row 1 — badge links */

@@ -38,6 +38,28 @@ export interface UnifiedProject {
   designReflection?: string;
 }
 
+// ─── Print Design ─────────────────────────────────────────────────────────────
+// One named section within a print project — e.g. "EU Edition" or "Merch".
+// Flexible enough to handle CD booklets, branding packages, posters etc.
+export interface PrintSection {
+  title: string;
+  description?: string; // optional — not every section needs explanatory text
+  images: string[]; // auto-loaded from subfolder via glob
+}
+
+// One print project — appears as a card on the portfolio page
+// and has its own dedicated page.
+export interface PrintProject {
+  id: string;
+  title: string;
+  cardImage: string; // thumbnail on the portfolio landing card
+  imageAlt: string;
+  shortDescription: string; // one-liner on the card
+  intro: string; // opening paragraphs on the dedicated page
+  sections: PrintSection[]; // flexible — 1 section or many
+  year?: string; // e.g. "2010–2011"
+}
+
 // ─── Logo ─────────────────────────────────────────────────────────────────────
 export interface Logo {
   id: string;
