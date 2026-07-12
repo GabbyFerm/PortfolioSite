@@ -8,6 +8,7 @@ import Journey from './components/sections/Journey';
 import Skills from './components/sections/Skills';
 import Portfolio from './components/sections/Portfolio';
 import ProjectPage from './components/pages/ProjectPage';
+import PrintPage from './components/pages/PrintPage';
 import ScrollToTop from './components/ui/ScrollToTop';
 import './styles/App.css';
 
@@ -57,6 +58,7 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/projects/:id" element={<ProjectPage />} />
+          <Route path="/print/:id" element={<PrintPage />} />
         </Routes>
       </main>
       <Footer />
