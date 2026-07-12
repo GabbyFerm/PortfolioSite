@@ -4,7 +4,7 @@ import type { UnifiedProject } from '../types';
 // One glob picks up every image across all project subfolders.
 // The ** wildcard means "any subfolder depth".
 const allImages = import.meta.glob<{ default: string }>(
-  '../assets/images/projects/**/*.{jpg,jpeg,png,svg}',
+  '../assets/images/projects/**/*.{jpg,jpeg,png,svg,webp}',
   { eager: true }
 );
 

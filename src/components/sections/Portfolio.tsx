@@ -1,8 +1,10 @@
 import Section from '../layout/Section';
 import Squiggle from '../ui/Squiggle';
 import ProjectCard from '../portfolio/ProjectCard';
+import PrintCard from '../portfolio/PrintCard';
 import LogoGrid from '../portfolio/LogoGrid';
 import { projects } from '../../data/projectsData';
+import { printProjects } from '../../data/printData';
 
 export default function Portfolio() {
   return (
@@ -23,6 +25,21 @@ export default function Portfolio() {
       <div className="portfolio-grid">
         {projects.map((project) => (
           <ProjectCard key={project.id} project={project} />
+        ))}
+      </div>
+
+      {/* ── Print Design ────────────────────────────────────────────────── */}
+      <div className="portfolio-intro" style={{ marginTop: 'var(--spacing-lg)' }}>
+        <h3>Print Design</h3>
+        <p>
+          Selected print work — CD artwork, booklets, merchandise, and visual identities. A mix of
+          past freelance work and ongoing projects as I continue to take on graphic design alongside
+          my other work.
+        </p>
+      </div>
+      <div className="portfolio-grid">
+        {printProjects.map((project) => (
+          <PrintCard key={project.id} project={project} />
         ))}
       </div>
 
