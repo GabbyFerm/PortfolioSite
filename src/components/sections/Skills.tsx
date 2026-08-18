@@ -73,7 +73,9 @@ export default function Skills() {
           <HiPaintBrush className="skill-icon" />
           <div className="skill-content">
             <strong className="skill-label">Design:</strong>
-            <span className="skill-text">Figma, Photoshop, Illustrator, InDesign, Canva</span>
+            <span className="skill-text">
+              Figma, Photoshop, Illustrator, InDesign, Canva, Affinity
+            </span>
           </div>
         </li>
 
