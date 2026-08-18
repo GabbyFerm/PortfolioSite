@@ -35,6 +35,46 @@ const firstFrom = (folderPath: string): string => fromFolder(folderPath)[0] ?? '
 // ─── Projects ──────────────────────────────────────────────────────────────────
 export const projects: UnifiedProject[] = [
   {
+    id: 'fibervault',
+    title: 'FiberVault — Yarn Stash Design System',
+    cardImage: firstFrom('fibervault/final-ui'),
+    imageAlt: 'FiberVault app screenshot',
+    shortDescription:
+      'A complete design system and UI case study for a yarn stash organizer with a social feed — currently in design, with development planned next.',
+    about:
+      'FiberVault is an idea I have wanted to build since making a first quick prototype in Lovable: a home for organizing a personal yarn stash — cataloguing skeins, tracking projects, and sharing finished work with other makers. While applying for a Visual Designer role, I realized my portfolio had UI work but nothing that demonstrated systemic design thinking, which pushed me to prioritize building it properly now. I rebuilt FiberVault from the ground up in Figma: locking a cohesive colour and typography system, building a full component library, and designing every core surface — landing, dashboard, stash, projects, social feed, and their mobile equivalents — from those shared foundations. The result is a self-contained design system where one accent colour, one type pairing, and one set of interaction patterns hold consistently across a public marketing page, an authenticated dashboard, and a social feed. Development is planned next, using ASP.NET Core, Clean Architecture, and React.',
+    tags: ['Figma', 'Design Systems', 'UI/UX', 'Component Library', 'Mobile Design'],
+    features: [
+      'Full design system: colour tokens, typography, and a reusable component library',
+      'Consistent brand accent applied across buttons, tags, navigation, and interactive states',
+      'Desktop and mobile layouts for landing, dashboard, stash, projects, and social feed',
+      'Componentized cards, modals, and navigation patterns reused across every surface',
+      'Auth-aware navigation and footer states that adapt for logged-in vs logged-out users',
+    ],
+    designGoals: [
+      'Design one brand accent colour used consistently across every interactive element',
+      'Create a component library that scales cleanly from desktop to mobile',
+      'Keep navigation and footer content aware of authentication state, not static',
+      'Build a system ready to hand off directly into development',
+    ],
+    designPhases: [
+      {
+        title: 'Design System',
+        description:
+          'Foundational colour palette, typography (Fraunces and Geist Sans pairing), and a full component library covering buttons, inputs, cards, tags, avatars, and navigation — built first so every subsequent screen could draw from shared, locked tokens rather than one-off styling.',
+        images: fromFolder('fibervault/design-system'),
+      },
+      {
+        title: 'Final UI',
+        description:
+          'High-fidelity desktop and mobile screens for the full app — landing page, dashboard, stash and project management, yarn and project detail views, and the social feed — each built from the shared component library to keep the brand consistent across every surface.',
+        images: fromFolder('fibervault/final-ui'),
+      },
+    ],
+    designReflection:
+      'Designing this before writing any code meant every colour and spacing decision had to be deliberate rather than eyeballed screen by screen. It pushed me to articulate the "why" behind each choice: one accent colour reserved for interactive elements, consistent active-state logic across the sidebar and top navigation, and navigation that adapts to who is actually looking at it. That discipline is something I plan to carry directly into the build.',
+  },
+  {
     id: 'family-budget-bloom',
     title: 'Family Budget Bloom',
     cardImage: img('family-budget-bloom/01-familybudgetbloom.jpg'),
